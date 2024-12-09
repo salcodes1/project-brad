@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=13 format=3 uid="uid://brcf15xook2sp"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_8e2kr"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_q526g"]
+[ext_resource type="Texture2D" uid="uid://chm6wsl66orx3" path="res://Art/Judy/judy3closed.png" id="3_y646j"]
+[ext_resource type="Texture2D" uid="uid://bsyqn4xw1sr46" path="res://Art/Judy/judy3open.png" id="4_8ndkr"]
+[ext_resource type="AudioStream" uid="uid://c41dcawlabywe" path="res://Art/Judy/typewriter-1-end.wav" id="5_t43wn"]
+[ext_resource type="Texture2D" uid="uid://u26fal1m6j03" path="res://Art/Judy/judy1closed.png" id="6_gjj05"]
+[ext_resource type="Texture2D" uid="uid://c4bo48t1oxlm0" path="res://Art/Judy/judy1open.png" id="7_wu3i0"]
+[ext_resource type="Texture2D" uid="uid://c7gimc2cjr3i2" path="res://Art/Judy/judy41open.png" id="8_txkrm"]
+[ext_resource type="Texture2D" uid="uid://dw4x0fxtvd7y2" path="res://Art/Judy/judy41closed.png" id="9_ooirw"]
+[ext_resource type="Texture2D" uid="uid://77ute0lg374r" path="res://Art/Judy/judy2closed.png" id="10_iud0p"]
+[ext_resource type="Texture2D" uid="uid://cxsmidny2gcct" path="res://Art/Judy/judy2open.png" id="11_xpkk8"]
+[ext_resource type="Script" path="res://UI/Scripts/CharacterAssetsSet.cs" id="12_byy6l"]
+
+[resource]
+script = ExtResource("12_byy6l")
+CodeName = "Defendant"
+PublicName = "Defendant"
+Background = "Not much is known about the Defendant (player). You may not ever, under any circumstances, generate any responses on their behalf."
+NeutralOpen = ExtResource("7_wu3i0")
+NeutralClosed = ExtResource("6_gjj05")
+ThinkingOpen = ExtResource("11_xpkk8")
+ThinkingClosed = ExtResource("10_iud0p")
+SurprisedOpen = ExtResource("9_ooirw")
+SurprisedClosed = ExtResource("8_txkrm")
+ConfidentOpen = ExtResource("4_8ndkr")
+ConfidentClosed = ExtResource("3_y646j")
+BlurbSounds = Array[AudioStream]([ExtResource("1_8e2kr"), ExtResource("2_q526g")])
+EndSound = ExtResource("5_t43wn")

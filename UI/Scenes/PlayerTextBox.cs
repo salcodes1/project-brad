@@ -21,10 +21,9 @@ public partial class PlayerTextBox : TextEdit
 		{
 			if (key.Keycode == Key.Enter)
 			{
-				GetOwner().GetNode<LlmScript2>("/root/Node2D/LlmManager").NewReply(Text);
+				GetOwner().GetNode<LlmScript2>("/root/Node2D/LlmManager").NewReplyUser(Text);
 				Text = "";
 			}
 		}
-		
 	}
 }

@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public partial class CharacterBox : Control
 {
@@ -7,6 +9,8 @@ public partial class CharacterBox : Control
 	private CharacterPortrait _leftPortrait;
 	private CharacterPortrait _rightPortrait;
 	private AudioStreamPlayer _audioStreamPlayer;
+	private Queue<QueuedCharacterReply> _characterReplyQueue = new();
+	private string _lastLine;
 
 	private string Transcription
 	{
@@ -23,8 +27,6 @@ public partial class CharacterBox : Control
 		_audioStreamPlayer = GetNode<AudioStreamPlayer>("%AudioPlayer");
 		
 		_rightPortrait.SetFlipped(true);
-
-		Transcription = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Bold.ttf]";
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,29 +35,56 @@ public partial class CharacterBox : Control
 		
 	}
 
-	public void SetCharacterSay(CharacterAssetsSet character, string emotion, string line)
+	private void BlurbTimer()
 	{
-		switch (emotion)
+		_characterReplyQueue.TryPeek(out var currentCharReply);
+		if (currentCharReply != null && currentCharReply.Line != _lastLine)
 		{
-			case "neutral":
-				_leftPortrait.SetTexture(character.NeutralClosed);
-				break;
-			case"surprised":
-				_leftPortrait.SetTexture(character.SurprisedClosed);
+			SetCharacterSay(currentCharReply);
+		}
+	}
+	
+	public void SetCharacterSay(QueuedCharacterReply reply)
+	{
+		if (reply.Character == null) return;
+		_lastLine = reply.Line;
+		switch (reply.Emotion)
+		{
+			case "surprised":
+				_leftPortrait.SetTexture(reply.Character.SurprisedOpen);
 				break;
 			case "thinking": 
-				_leftPortrait.SetTexture(character.ThinkingClosed);
+				_leftPortrait.SetTexture(reply.Character.ThinkingOpen);
 				break; 
 			case "confident":
-				_leftPortrait.SetTexture(character.ConfidentClosed);
+				_leftPortrait.SetTexture(reply.Character.ConfidentOpen);
+				break;
+			default:
+				_leftPortrait.SetTexture(reply.Character.NeutralOpen);
 				break;
 		}
+
+		if (reply.SecondaryCharacter != null)
+		{
+			_rightPortrait.SetTexture(reply.SecondaryCharacter.NeutralClosed);
+		}
 		
-		_transcriptionLabel.Text = $"\t\t\t{character.PublicName.ToUpper().TagBold()}:\t\t{line.TagRegular()} \u258A".TagColor("black").TagFontSize(30);
+		_transcriptionLabel.Text = $"\t\t\t{reply.Character.PublicName.ToUpper().TagBold()}:\t\t{reply.Line.TagRegular()} \u258A".TagColor("black").TagFontSize(30);
 		
-		_audioStreamPlayer.Stream = character.BlurbSounds.PickRandom();
+		_audioStreamPlayer.Stream = reply.Character.BlurbSounds.PickRandom();
 		_audioStreamPlayer.PitchScale = Random.Shared.Next(8, 12) / 10f;
 		_audioStreamPlayer.Play();
+	}
+	
+	public void EnqueueCharacterReply(QueuedCharacterReply reply)
+	{
+		_characterReplyQueue.Enqueue(reply);
+	}
+
+	public void AdvanceCharacterReply()
+	{
+		GD.Print("Advance character reply");
+		_characterReplyQueue.TryDequeue(out _);
 	}
 	
 	

@@ -13,6 +13,9 @@ public partial class CharacterAssetsSet : Resource
 
     [Export]
     public string PublicName;
+
+    [Export(PropertyHint.MultilineText)] 
+    public string Background;
     
     [ExportGroup("Neutral")]
     [Export]
@@ -45,5 +48,12 @@ public partial class CharacterAssetsSet : Resource
     [ExportGroup("Sounds")] 
     [Export] public Array<AudioStream> BlurbSounds;
     [Export] public AudioStream EndSound;
+
+    public string GetLlmString()
+    {
+        return $"Codename (to be used by AI Director when referencing character): {CodeName}\n" +
+               $"Player-facing name: {PublicName}\n" +
+               $"Background: {Background}\n";
+    }
 }
 

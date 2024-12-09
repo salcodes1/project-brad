@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=13 format=3 uid="uid://cvj17q0xtusib"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_0qdkl"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_eyibb"]
+[ext_resource type="Texture2D" uid="uid://chm6wsl66orx3" path="res://Art/Judy/judy3closed.png" id="3_ioubi"]
+[ext_resource type="Texture2D" uid="uid://bsyqn4xw1sr46" path="res://Art/Judy/judy3open.png" id="4_lwlvn"]
+[ext_resource type="AudioStream" uid="uid://c41dcawlabywe" path="res://Art/Judy/typewriter-1-end.wav" id="5_xowna"]
+[ext_resource type="Texture2D" uid="uid://u26fal1m6j03" path="res://Art/Judy/judy1closed.png" id="6_gqbc4"]
+[ext_resource type="Texture2D" uid="uid://c4bo48t1oxlm0" path="res://Art/Judy/judy1open.png" id="7_7yp2k"]
+[ext_resource type="Texture2D" uid="uid://c7gimc2cjr3i2" path="res://Art/Judy/judy41open.png" id="8_dmcc5"]
+[ext_resource type="Texture2D" uid="uid://dw4x0fxtvd7y2" path="res://Art/Judy/judy41closed.png" id="9_uh0xd"]
+[ext_resource type="Texture2D" uid="uid://77ute0lg374r" path="res://Art/Judy/judy2closed.png" id="10_d6d21"]
+[ext_resource type="Texture2D" uid="uid://cxsmidny2gcct" path="res://Art/Judy/judy2open.png" id="11_vugb4"]
+[ext_resource type="Script" path="res://UI/Scripts/CharacterAssetsSet.cs" id="12_paoq0"]
+
+[resource]
+script = ExtResource("12_paoq0")
+CodeName = "Judge"
+PublicName = "Judge Hamilton"
+Background = "Is an astute and calm judge, but can ramble sometimes."
+NeutralOpen = ExtResource("7_7yp2k")
+NeutralClosed = ExtResource("6_gqbc4")
+ThinkingOpen = ExtResource("11_vugb4")
+ThinkingClosed = ExtResource("10_d6d21")
+SurprisedOpen = ExtResource("9_uh0xd")
+SurprisedClosed = ExtResource("8_dmcc5")
+ConfidentOpen = ExtResource("4_lwlvn")
+ConfidentClosed = ExtResource("3_ioubi")
+BlurbSounds = Array[AudioStream]([ExtResource("1_0qdkl"), ExtResource("2_eyibb")])
+EndSound = ExtResource("5_xowna")
