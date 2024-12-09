@@ -1,0 +1,17 @@
+﻿root ::= event
+
+event ::= actorreply newline end
+
+actorreply ::= "CHAR_REPLY" newline "Name: " actorname newline "Emotion: " expression newline "Line: " line (newline "Line: " line){0,3}
+
+newline ::= "\n"
+
+actorname ::= unicodeprintable*
+
+expression ::= unicodeprintable*
+
+line ::= unicodeprintable*
+
+end ::= "[$END]"
+
+unicodeprintable ::= [\u0020-\u007E\u00A0-\uFFFD]

@@ -1,0 +1,19 @@
+﻿root ::= event
+
+event ::= actorreply newline end
+
+actorreply ::= "$CharacterReply" newline "Name:" actorname newline "Emotion:" emotion newline "*Line:" line (newline "*Line:" line){0,3}
+
+newline ::= "\n"
+
+actorname ::= alphanumeric*
+
+emotion ::= "neutral" | "surprised" | "thinking" | "confident"
+
+expression ::= alphanumeric*
+
+line ::= alphanumeric*
+
+end ::= "$[END]"
+
+alphanumeric ::= [a-zA-Z0-9 !#%&'()*+,-./:;<=>?@\[\]^_`{|}~]

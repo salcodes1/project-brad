@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=6 format=3 uid="uid://c5ka6tehtyuun"]
+
+[ext_resource type="Script" path="res://LLM/Scripts/LlmEvidence.cs" id="1_mqftg"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="1_swt7x"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmPlaintiff.cs" id="2_0ww2p"]
+
+[sub_resource type="Resource" id="Resource_brxa3"]
+script = ExtResource("1_mqftg")
+Description = ""
+Base64Img = ""
+
+[sub_resource type="Resource" id="Resource_u6gss"]
+script = ExtResource("2_0ww2p")
+Name = ""
+Personality = ""
+Background = ""
+
+[resource]
+script = ExtResource("1_swt7x")
+GeneralInfo = PackedStringArray()
+PlaintiffInfo = SubResource("Resource_u6gss")
+InitialEvidences = Array[Object]([SubResource("Resource_brxa3")])

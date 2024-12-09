@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b77fc4ledwt4l"]
+
+[ext_resource type="Texture2D" uid="uid://c7gimc2cjr3i2" path="res://Art/Judy/judy41open.png" id="1_nqc2d"]
+[ext_resource type="Script" path="res://UI/Scripts/CharacterPortrait.cs" id="2_fe8bv"]
+
+[node name="TextureRect" type="TextureRect"]
+z_index = -1
+size_flags_horizontal = 3
+texture = ExtResource("1_nqc2d")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("2_fe8bv")
+
+[node name="Shadow" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.19, 0.19, 0.19, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_right = 1.042
+anchor_bottom = 1.0
+offset_left = -0.827895
+offset_right = -0.0393677
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqc2d")
+expand_mode = 3
+stretch_mode = 4

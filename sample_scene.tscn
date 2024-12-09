@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk0pp5g6t740n"]
+
+[ext_resource type="Script" path="res://LlmScript2.cs" id="1_x83fi"]
+[ext_resource type="PackedScene" uid="uid://cpi4mfj8m8x15" path="res://UI/Scenes/CharacterBox.tscn" id="2_50ek7"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/Judy/PS_Judy.tres" id="2_siqpk"]
+[ext_resource type="Texture2D" uid="uid://cu8p7haj6bqlf" path="res://Art/Backdrops/courtroom-1.png" id="3_o353x"]
+[ext_resource type="PackedScene" uid="uid://cms8b2jgsvhbx" path="res://UI/Scenes/PlayerTextBox.tscn" id="5_7fxpd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LlmManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_x83fi")
+Characters = [ExtResource("2_siqpk")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = -1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o353x")
+expand_mode = 3
+
+[node name="CharacterBox" parent="CanvasLayer" instance=ExtResource("2_50ek7")]
+unique_name_in_owner = true
+
+[node name="PlayerTextBox" parent="CanvasLayer" instance=ExtResource("5_7fxpd")]
+z_index = 2

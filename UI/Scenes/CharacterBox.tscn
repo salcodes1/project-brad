@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpi4mfj8m8x15"]
+
+[ext_resource type="PackedScene" uid="uid://b77fc4ledwt4l" path="res://UI/Scenes/CharacterPortrait.tscn" id="1_ip6cq"]
+[ext_resource type="Script" path="res://UI/Scripts/CharacterBox.cs" id="1_t3oxy"]
+[ext_resource type="Texture2D" uid="uid://dmnx20k41us17" path="res://UI/Resources/Elements/v1text.png" id="2_omkwy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbk2l"]
+texture = ExtResource("2_omkwy")
+texture_margin_left = 222.669
+texture_margin_top = 106.304
+texture_margin_right = 209.836
+texture_margin_bottom = 80.5955
+region_rect = Rect2(21.7619, 22.6419, 1161.58, 628.337)
+
+[node name="CharacterBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t3oxy")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.676
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.52
+offset_top = -0.0800781
+offset_right = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nbk2l")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 210
+theme_override_constants/margin_top = 85
+theme_override_constants/margin_right = 170
+theme_override_constants/margin_bottom = 80
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
+
+[node name="Transcription" type="RichTextLabel" parent="Panel/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Bold.ttf]	MRS. CLYDE: [font=UI/Resources/Fonts/CourierPrime-Regular.ttf]I am really surprised by the court's decision to uphold Section 230 during such tumultuous times."
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 10
+
+[node name="LeftPortrait" parent="." instance=ExtResource("1_ip6cq")]
+unique_name_in_owner = true
+z_index = 0
+layout_mode = 2
+offset_left = 137.0
+offset_top = 40.0
+offset_right = 625.4
+offset_bottom = 854.0
+
+[node name="RightPortrait" parent="." instance=ExtResource("1_ip6cq")]
+unique_name_in_owner = true
+z_index = 0
+layout_mode = 2
+offset_left = 1300.0
+offset_top = 40.0
+offset_right = 1788.4
+offset_bottom = 854.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
