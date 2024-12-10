@@ -46,7 +46,7 @@ public partial class LlmEvent : Node
         {
             try
             {
-                var prompt = $"[NEW INSTRUCTION]: {_instructions}";
+                var prompt = $"{_instructions}";
                  StringBuilder lineBuilder = new StringBuilder();
                 
 

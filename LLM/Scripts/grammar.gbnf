@@ -1,20 +1,18 @@
 ﻿root ::= event+
 
-event ::= actorreply newline end
+event ::= actorreply end
 
-actorreply ::= "EventType: CharacterReply" newline "Codename:" codename newline "LookingAtCodename: " codename newline emotionline
+actorreply ::= "EventType: CharacterReply" newline "Codename:" codename newline "LookingAtCodename: " codename newline emotionline newline
 
 newline ::= "\n"
 
-codename ::= alphanumeric*
+codename ::= alphanumeric+
 
 emotionline ::= "Emotion: " emotion newline "Line: " line
 
 emotion ::= "neutral" | "surprised" | "thinking" | "confident"
 
-expression ::= alphanumeric*
-
-line ::= "'" alphanumeric* "'"
+line ::= alphanumeric*
 
 end ::= "$[END]"
 

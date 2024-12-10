@@ -11,7 +11,8 @@
 
 [sub_resource type="Resource" id="Resource_ixu7o"]
 script = ExtResource("3_qa0u4")
-GeneralInfo = "Lexmark International, Incorporated (Lexmark) (plaintiff) manufactured inkjet and laser printers and complementary toner cartridges. Lexmark’s toner cartridges contained a small microchip with a simple computer program, the Toner Loading Program (TLP). TLP measured the remaining toner in the cartridge and conveyed relevant information to the printer. TLP also provided information to the printer to authenticate use of the cartridge. Lexmark’s printers contained a more complex computer program, called the Printer Engine Program (PEP). PEP directed the printer to complete its various functions, like feeding paper. Neither program was encrypted. Lexmark sold toner cartridges for its laser printers at two price levels. Lexmark’s Prebate cartridges required consumers to agree to return cartridges to Lexmark after use in return for a discounted price at the time of sale. Non-Prebate cartridges were sold at full price, but could be refilled and reused by the consumers rather than returning the cartridges to Lexmark. The authentication procedure built into the printer ensured that Prebate toner cartridges were not reused by consumers. Static Control Components, Incorporated (SCC) (defendant) manufactured microchips for use on toner cartridges. One of the microchips SCC manufactured, the SMARTEK chip, was designed to bypass Lexmark’s authentication program and allow consumers or third-party manufacturers to replace the microchip on used Prebate cartridges. By replacing the microchip, the cartridges could be purchased at Lexmark’s discount price and then resold at a discount off Lexmark’s prices. The SMARTEK chip contained an exact copy of the Toner Loading Program to enable the cartridge to operate with Lexmark’s printers. Lexmark sued SCC for violating 17 U.S.C. § 106 by selling a technology intended to circumvent Lexmark’s access-control mechanism for operating its printers."
+GeneralInfo = "Lexmark International, Incorporated (Lexmark) (plaintiff) manufactured inkjet and laser printers and complementary toner cartridges. Lexmark’s toner cartridges contained a small microchip with a simple computer program, the Toner Loading Program (TLP). TLP measured the remaining toner in the cartridge and conveyed relevant information to the printer. TLP also provided information to the printer to authenticate use of the cartridge. Lexmark’s printers contained a more complex computer program, called the Printer Engine Program (PEP). PEP directed the printer to complete its various functions, like feeding paper. Neither program was encrypted. Lexmark sold toner cartridges for its laser printers at two price levels. Lexmark’s Prebate cartridges required consumers to agree to return cartridges to Lexmark after use in return for a discounted price at the time of sale. Non-Prebate cartridges were sold at full price, but could be refilled and reused by the consumers rather than returning the cartridges to Lexmark. The authentication procedure built into the printer ensured that Prebate toner cartridges were not reused by consumers. Static Control Components, Incorporated (SCC) (defendant) manufactured microchips for use on toner cartridges. One of the microchips SCC manufactured, the SMARTEK chip, was designed to bypass Lexmark’s authentication program and allow consumers or third-party manufacturers to replace the microchip on used Prebate cartridges. By replacing the microchip, the cartridges could be purchased at Lexmark’s discount price and then resold at a discount off Lexmark’s prices. The SMARTEK chip contained an exact copy of the Toner Loading Program to enable the cartridge to operate with Lexmark’s printers. Lexmark sued SCC for violating 17 U.S.C. § 106 by selling a technology intended to circumvent Lexmark’s access-control mechanism for operating its printers.
+"
 Characters = Array[Object]([ExtResource("2_8ugbh"), ExtResource("2_siqpk"), ExtResource("4_4b3d5")])
 InitialEvidences = null
 
@@ -20,11 +21,27 @@ InitialEvidences = null
 [node name="LlmManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_x83fi")
-SystemPrompt = "You are the director of a video game about court cases. You respond in a specific grammar that is interpreted by a video game frontend. Your actions affect the course of the game.
+SystemPrompt = "You are the director of an educational video game about court cases. You respond in a specific grammar that is interpreted by a video game frontend. Your actions affect the course of the game.
 Here is the grammar that you should follow when the video game frontend asks for an event: {grammar}
 Do not output anything else but the grammar.
 You need to follow the instructions very closely. Do only what you're told. Do not include previous lines or events in the current events.
-Do not reference any other characters other than the ones provided below, and only reference them by their Codename!"
+Do not reference any other characters other than the ones provided below, and only reference them by their Codename!
+
+As a general law, the player should be given many opportunities to present their point of view, even if their intervention doesn't follow the usual court procedures.
+
+Characters must keep in character at all times. Do not attempt to correct a player misunderstanding.
+
+The same characte may have multiple CharacterReply's in a row. That's not an issue and is actually encouraged.
+
+Output only one line per character reply!
+
+Here is an example of a propery CharacterReply:
+
+Codename: PlaintiffLawyer
+LookingAtCodename: Judge
+Emotion: neutral
+Line: Your Honor, I believe we must address the anti-circumvention aspects of the lawsuit first.
+$[END]"
 Scenario = SubResource("Resource_ixu7o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

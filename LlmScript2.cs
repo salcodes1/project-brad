@@ -7,6 +7,7 @@ using Godot.Collections;
 using LLama;
 using LLama.Common;
 using LLama.Sampling;
+using LLama.Transformers;
 using ProjectBrad.LLM.Scripts;
 
 public partial class LlmScript2 : Node
@@ -32,9 +33,11 @@ public partial class LlmScript2 : Node
         grammar = FileAccess.Open("res://LLM/Scripts/grammar.gbnf", FileAccess.ModeFlags.Read).GetAsText();
         SystemPrompt = SystemPrompt.Replace("{grammar}", grammar);
 
-        string modelPath = @"Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf";
+        
+        string modelPath = @"Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"; //@"Ministral-8B-Instruct-2410-Q5_K_L.gguf"; 
         var parameters = new ModelParams(modelPath)
         {
+            
             ContextSize = 32768, // The longest length of chat as memory.
             GpuLayerCount = 1000, // How many layers to offload to GPU. Please adjust it according to your GPU memory.,
             FlashAttention = true
@@ -44,16 +47,18 @@ public partial class LlmScript2 : Node
 
         executor = new InteractiveExecutor(context);
         chatHistory = new ChatHistory();
-
-        chatHistory.AddMessage(AuthorRole.System, SystemPrompt);
-
-        chatHistory.AddMessage(AuthorRole.System, Scenario.GetLlmString());
+        
+        chatHistory.AddMessage(AuthorRole.System, SystemPrompt + Scenario.GetLlmString());
 
         Console.WriteLine(SystemPrompt);
         Console.WriteLine(Scenario.GetLlmString());
 
         session = new ChatSession(executor, chatHistory);
-
+        session.WithHistoryTransform(new PromptTemplateTransformer(model, withAssistant: true));
+        // session.WithOutputTransform(new LLamaTransforms.KeywordTextOutputStreamTransform(
+        //     new List<string>{model.Tokens.EndOfTurnToken ?? "User:", "�"},
+        //     redundancyLength: 5));
+        
         _charBox = GetNode<CharacterBox>("%CharacterBox");
     }
 
@@ -68,17 +73,19 @@ public partial class LlmScript2 : Node
         InferenceParams inferenceParams = new InferenceParams()
         {
             MaxTokens = 256, // No more than 256 tokens should appear in answer. Remove it if antiprompt is enough for control.
-            AntiPrompts = new List<string> { "$[END]" }, // Stop generation once antiprompts appear.
+            AntiPrompts = new List<string> {model.Tokens.EndOfSpeechToken, model.Tokens.EndOfSpeechToken, "$[END]" }, // Stop generation once antiprompts appear.
 
             SamplingPipeline = new DefaultSamplingPipeline()
             {
                 Grammar = new Grammar(grammar, "root"),
-                Temperature = 1.3f
+                Temperature = 1.3f,
+                RepeatPenaltyCount = 5
             },
+            
         };
 
         string instructions =
-            $"Please provide a CharacterReply from one of the present character in response to the player (the defendant) who has said this: {userInput}";
+            $"Please provide a single CharacterReply from one of the present characters in response to the player (the defendant) who has said this: {userInput}";
         var @event = new LlmEvent(this, instructions);
         @event.StartProcessing(session, inferenceParams);
         _ = new QueuedCharacterReply(@event, Scenario.Characters, _charBox);
@@ -92,16 +99,16 @@ public partial class LlmScript2 : Node
         {
             MaxTokens = 256, // No more than 256 tokens should appear in answer. Remove it if antiprompt is enough for control.
             AntiPrompts = new List<string> { "$[END]" }, // Stop generation once antiprompts appear.
-
+            
             SamplingPipeline = new DefaultSamplingPipeline()
             {
                 Grammar = new Grammar(grammar, "root"),
-                Temperature = 1.3f
+                RepeatPenalty = 1.3f
             },
         };
 
         string instructions =
-            $"Please provide a CharacterReply from one of the present character.";
+            $"Please provide a single CharacterReply from one of the present characters (aside from the Defendant).";
         var @event = new LlmEvent(this, instructions);
         @event.StartProcessing(session, inferenceParams);
         _ = new QueuedCharacterReply(@event, Scenario.Characters, _charBox);

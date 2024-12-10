@@ -93,6 +93,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="NextButton" type="Button" parent="."]
+visible = false
 z_index = 1073
 layout_mode = 1
 anchors_preset = -1

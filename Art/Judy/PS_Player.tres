@@ -17,7 +17,7 @@
 script = ExtResource("12_byy6l")
 CodeName = "Defendant"
 PublicName = "Defendant"
-Background = "Not much is known about the Defendant (player). You may not ever, under any circumstances, generate any responses on their behalf."
+Background = "The player acts as the Defendant character, having full control over their speech. The Defendant represent themselves in court. !!!As the AI director,  you may not ever, under any circumstances, generate any responses on their behalf!!!"
 NeutralOpen = ExtResource("7_wu3i0")
 NeutralClosed = ExtResource("6_gjj05")
 ThinkingOpen = ExtResource("11_xpkk8")
