@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dw4x0fxtvd7y2" path="res://Art/Judy/judy41closed.png" id="9_ooirw"]
 [ext_resource type="Texture2D" uid="uid://77ute0lg374r" path="res://Art/Judy/judy2closed.png" id="10_iud0p"]
 [ext_resource type="Texture2D" uid="uid://cxsmidny2gcct" path="res://Art/Judy/judy2open.png" id="11_xpkk8"]
-[ext_resource type="Script" path="res://UI/Scripts/CharacterAssetsSet.cs" id="12_byy6l"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="12_byy6l"]
 
 [resource]
 script = ExtResource("12_byy6l")
