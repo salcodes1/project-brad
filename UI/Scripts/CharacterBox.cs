@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class CharacterBox : Control
 {
@@ -11,6 +12,7 @@ public partial class CharacterBox : Control
 	private AudioStreamPlayer _audioStreamPlayer;
 	private Queue<QueuedCharacterReply> _characterReplyQueue = new();
 	private string _lastLine;
+	private int _lineNum = 0;
 
 	private string Transcription
 	{
@@ -68,12 +70,56 @@ public partial class CharacterBox : Control
 		{
 			_rightPortrait.SetTexture(reply.SecondaryCharacter.NeutralClosed);
 		}
-		
-		_transcriptionLabel.Text = $"\t\t\t{reply.Character.PublicName.ToUpper().TagBold()}:\t\t{reply.Line.TagRegular()} \u258A".TagColor("black").TagFontSize(30);
-		
+
+		// format lines to have explicit "\n" characters rather than relying on 
+		// auto-wrap of Godot
+		var newLines = "";
+		if (reply.Line != null)
+		{
+			newLines = FormatTranscription(reply.Line, reply.Character.PublicName);
+		}
+
+		_transcriptionLabel.Text = $"{_lineNum}|\t\t\t{reply.Character.PublicName.ToUpper().TagBold()}:\t\t{newLines.TagRegular()} \u258A".TagColor("black").TagFontSize(30);
+
 		_audioStreamPlayer.Stream = reply.Character.BlurbSounds.PickRandom();
 		_audioStreamPlayer.PitchScale = Random.Shared.Next(8, 12) / 10f;
 		_audioStreamPlayer.Play();
+	}
+
+	/*
+	// The FormatTranscription method is meant to be used to add in line numbers
+	// to character replies. This is needed, because the auto-wrap from Godot does
+	// it internally, and it's difficult to override, so I just change the text
+	// itself by adding in newlines, allowing for a max of 80 characters per line,
+	// which should work out for any display, since we have explicitly declared
+	// pixel sizes for the window.
+	*/
+	public string FormatTranscription(string replyLine, string characterPublicName)
+	{
+		// start out with first line of which character is speaking
+		var newLines = $"{_lineNum}|      {characterPublicName}:    ";
+		var startingLength = newLines.Length;
+		var currentLineLength = startingLength;
+		var maxChars = 80;
+		// go through reply word-for-word
+		foreach (var word in replyLine.Split(" "))
+		{
+			// if it fits in line, add in the word, and update current line length
+			if (currentLineLength + word.Length < maxChars)
+			{
+				newLines = newLines + " " + word;
+				currentLineLength += word.Length + 1;
+			}
+			// else, add in new line with the next line number
+			else
+			{
+				var additionalLinesNum = newLines.Split("\n").Length;
+				newLines = newLines + $"\n{_lineNum + additionalLinesNum}| " + word;
+				currentLineLength = word.Length;
+			}
+		}
+
+		return newLines.Substring(startingLength);
 	}
 	
 	public void EnqueueCharacterReply(QueuedCharacterReply reply)
@@ -84,6 +130,18 @@ public partial class CharacterBox : Control
 	public void AdvanceCharacterReply()
 	{
 		GD.Print("Advance character reply");
+		if (_lineNum == 0)
+		{
+			// if haven't started yet, start out with line 1
+			_lineNum = 1;
+		}
+		else if (_characterReplyQueue.TryPeek(out var currentCharReply))
+		{
+			// get current reply, and format it to count how many lines are being added from that specific reply
+			var numLinesAdded = FormatTranscription(currentCharReply.Line, currentCharReply.Character.PublicName).Split("\n").Length;
+			// then update line number (how many we've already gone through)
+			_lineNum += numLinesAdded;
+		}
 		_characterReplyQueue.TryDequeue(out _);
 	}
 	
