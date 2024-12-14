@@ -60,7 +60,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 bbcode_enabled = true
-text = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Bold.ttf]	MRS. CLYDE: [font=UI/Resources/Fonts/CourierPrime-Regular.ttf]I am really surprised by the court's decision to uphold Section 230 during such tumultuous times."
+text = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Regular.ttf]Loading... This might take a minute..."
 fit_content = true
 scroll_following = true
 autowrap_mode = 2
