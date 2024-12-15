@@ -79,8 +79,8 @@ public partial class CharacterBox : Control
         var newLines = FormatTranscription(line, @event.LeftCharacter.PublicName);
 
         _transcriptionLabel.Text =
-            $"{_lineNum}|\t\t\t{@event.LeftCharacter.PublicName.ToUpper().TagBold()}:\t\t{newLines.TagRegular()} \u258A"
-                .TagColor("black").TagFontSize(30);
+            $"{_lineNum} \t\t\t{@event.LeftCharacter.PublicName.ToUpper().TagBold()}:\t\t{newLines} \u258A"
+                .TagColor("black").TagFontSize(30).TagRegular();
 
         _audioStreamPlayer.Stream = @event.LeftCharacter.BlurbSounds.PickRandom();
         _audioStreamPlayer.PitchScale = Random.Shared.Next(8, 12) / 10f;
@@ -98,7 +98,7 @@ public partial class CharacterBox : Control
     public string FormatTranscription(string replyLine, string characterPublicName)
     {
         // start out with first line of which character is speaking
-        var newLines = $"{_lineNum}|      {characterPublicName}:    ";
+        var newLines = $"{_lineNum}        {characterPublicName}:    ";
         var startingLength = newLines.Length;
         var currentLineLength = startingLength;
         var maxChars = 80;
@@ -115,7 +115,7 @@ public partial class CharacterBox : Control
             else
             {
                 var additionalLinesNum = newLines.Split("\n").Length;
-                newLines = newLines + $"\n{_lineNum + additionalLinesNum}| " + word;
+                newLines = newLines + $"\n{_lineNum + additionalLinesNum}   " + word;
                 currentLineLength = word.Length;
             }
         }

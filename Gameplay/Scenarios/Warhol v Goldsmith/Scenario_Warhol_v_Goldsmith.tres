@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=6 format=3 uid="uid://bmhfsieb6hu05"]
+
+[ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_tnjii"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_6fjd6"]
+[ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_3st6m"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="4_p7lim"]
+[ext_resource type="Resource" uid="uid://crwy0w1w4al7f" path="res://Gameplay/Scenarios/Warhol v Goldsmith/AB_Jeffrey Sedlik.tres" id="4_t8prn"]
+
+[resource]
+script = ExtResource("4_p7lim")
+GeneralInfo = "Basic Information
+Context of the Case:
+A landmark 2023 Supreme Court decision about copyright and fair use in the context of visual art.
+The case centers on Andy Warhol's use of a photograph of musician Prince taken by Lynn Goldsmith in his artwork.
+Why the Plaintiff is Suing:
+Lynn Goldsmith, the original photographer, sued the Andy Warhol Foundation (AWF), alleging that Warhol’s use of her photograph infringed her copyright.
+Objective Facts:
+Lynn Goldsmith took a black-and-white photograph of Prince in 1981.
+Vanity Fair licensed Goldsmith’s photo in 1984 for use as an \"artist reference\" for Warhol, who created a silkscreen image (the \"Orange Prince\").
+Warhol later created additional variations of Prince using the same photograph without Goldsmith’s knowledge or further licensing.
+After Prince’s death in 2016, Vanity Fair published one of Warhol’s Prince images, prompting Goldsmith to file suit.
+Arguments of Each Side:
+Plaintiff (Lynn Goldsmith):
+Goldsmith’s original photograph was used without further licensing or her consent, violating her exclusive copyright.
+The Prince Series constitutes derivative works rather than transformative ones, as they do not add sufficient new expression or meaning to the original work.
+The AWF's actions impacted the licensing market for Goldsmith’s photograph, undermining her ability to control and profit from her intellectual property.
+Defendant (Andy Warhol Foundation):
+The Prince Series is transformative because Warhol’s works imbue the photograph with a new meaning and artistic expression, reflecting his signature pop-art style.
+The purpose of the artwork shifted from documenting Prince to commenting on fame and celebrity culture.
+Fair use should protect creative reinterpretation, which fosters artistic innovation and cultural progress.
+Legal Dispute:
+AWF argued that Warhol’s works transformed Goldsmith's photograph sufficiently to qualify as fair use under the Copyright Act.
+Goldsmith countered that the images were derivative works and required licensing.
+Relevant Excerpts:
+17 U.S.C. § 107 (Fair Use): “The fair use of a copyrighted work ... for purposes such as criticism, comment, news reporting, teaching ... scholarship, or research, is not an infringement of copyright.”
+Factors to consider:
+Purpose and character of the use (e.g., commercial vs. educational).
+Nature of the copyrighted work.
+Amount and substantiality of the portion used.
+Effect on the potential market for the original work.
+Supreme Court Majority Opinion Highlights (Justice Sotomayor):
+Found that Warhol’s work, though stylistically different, retained Goldsmith’s creative essence and competed in the same market as her photograph. 
+Emphasized that the commercial purpose of Vanity Fair's use of Warhol’s work tipped against fair use.
+“Transformative use” must serve a distinct and non-competing function from the original work to qualify as fair use.
+Dissent (Justice Kagan):
+Asserted that Warhol’s Prince Series fundamentally altered Goldsmith’s photo, creating an entirely new meaning about the nature of celebrity. 
+Warned that the decision could stifle artistic creativity and reinterpretation.
+"
+Characters = Array[Object]([ExtResource("1_tnjii"), ExtResource("2_6fjd6"), ExtResource("3_3st6m"), ExtResource("4_t8prn")])
+InitialEvidences = null

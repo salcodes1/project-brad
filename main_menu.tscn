@@ -73,7 +73,6 @@ theme_override_font_sizes/font_size = 70
 text = "Quit"
 
 [node name="LevelButtons" type="GridContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 260.0
 offset_top = 260.0
@@ -178,4 +177,5 @@ text = "Back to Main Menu"
 [connection signal="pressed" from="MainMenuButtons/OptionsButton" to="MainMenuButtons" method="OptionsButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/QuitButton" to="MainMenuButtons" method="QuitButtonPressed"]
 [connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="StartGame" binds= ["res://Gameplay\\\\Scenarios\\\\Lexmark\\\\Scenario_Lexmark.tres"]]
+[connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
 [connection signal="pressed" from="LevelButtons/BackButton" to="LevelButtons" method="BackButtonPressed"]

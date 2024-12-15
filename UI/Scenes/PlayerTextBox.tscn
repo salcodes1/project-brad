@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cms8b2jgsvhbx"]
 
-[ext_resource type="Script" path="res://UI/Scenes/PlayerTextBox.cs" id="1_1s3cr"]
+[ext_resource type="Script" path="res://UI/Scripts/PlayerTextBox.cs" id="1_1s3cr"]
 
 [node name="PlayerTextBox" type="Control"]
 layout_mode = 3

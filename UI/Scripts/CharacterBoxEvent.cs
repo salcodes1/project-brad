@@ -9,6 +9,7 @@ public partial class CharacterBoxEvent : GodotObject
 {
     public enum Type {
         CharacterSay,
+        NarratorSay,
         Break
     }    
     

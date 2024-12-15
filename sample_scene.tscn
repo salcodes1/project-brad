@@ -21,16 +21,16 @@ As a general law, the player should be given many opportunities to present their
 
 Characters must keep in character at all times. Do not attempt to correct a player misunderstanding.
 
-The same characte may have multiple CharacterReply's in a row. That's not an issue and is actually encouraged.
-
-Output only one line per character reply!
+The same character may have multiple CharacterReply's in a row. That's not an issue and is actually encouraged.
 
 Here is an example of a propery CharacterReply:
 
 Codename: PlaintiffLawyer
 LookingAtCodename: Judge [can only be one]
 Emotion: neutral
-Line: Your Honor, I believe we must address the anti-circumvention aspects of the lawsuit first."
+Line: Your Honor, I believe we must address the anti-circumvention aspects of the lawsuit first.
+Emotion: confident
+Line: In any case, Justice will be served!"
 Scenario = ExtResource("2_aerms")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

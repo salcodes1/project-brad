@@ -17,7 +17,7 @@
 script = ExtResource("12_ufe60")
 CodeName = "PlaintiffLawyer"
 PublicName = "MRS. Kalvin"
-Background = "She is a fierce lawyer for Lexmark."
+Background = "She is a fierce lawyer for the Plaintiff."
 NeutralOpen = ExtResource("7_pdsnw")
 NeutralClosed = ExtResource("6_uxt48")
 ThinkingOpen = ExtResource("11_mjxnr")
