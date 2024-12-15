@@ -144,10 +144,7 @@ public partial class CharacterBox : Control
             }
             else if (_currentEvent.Finished)
             {
-                if (_characterBoxEventQueue.TryDequeue(out _currentEvent))
-                {
-                    SetCharacterSay(_currentEvent);
-                }
+                _characterBoxEventQueue.TryDequeue(out _currentEvent);
             }
         }
     }

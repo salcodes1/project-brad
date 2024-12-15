@@ -73,6 +73,7 @@ theme_override_font_sizes/font_size = 70
 text = "Quit"
 
 [node name="LevelButtons" type="GridContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 260.0
 offset_top = 260.0

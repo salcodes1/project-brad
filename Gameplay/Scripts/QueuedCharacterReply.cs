@@ -33,7 +33,6 @@ public partial class QueuedCharacterReply : Node
             try
             {
                 Character = _characters.First(@char => @char.CodeName == name);
-                SecondaryCharacter = _characters.First(@char => @char.CodeName == glancingTowardsName);
             }
             catch (InvalidOperationException e)
             {
@@ -41,6 +40,7 @@ public partial class QueuedCharacterReply : Node
                 return;
             }
 
+            SecondaryCharacter = _characters.FirstOrDefault(@char => @char.CodeName == glancingTowardsName);
             string emotionUpdate;
             IAsyncEnumerable<string> currentLineEnumerable;
             
