@@ -57,6 +57,7 @@ mouse_default_cursor_shape = 6
 z_index = 2
 anchors_preset = -1
 anchor_top = 0.926852
+offset_top = -1.00012
 metadata/_edit_use_anchors_ = true
 
 [node name="AdvanceButton" type="Button" parent="CanvasLayer"]

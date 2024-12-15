@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cms8b2jgsvhbx"]
+[gd_scene load_steps=3 format=3 uid="uid://cms8b2jgsvhbx"]
 
 [ext_resource type="Script" path="res://UI/Scripts/PlayerTextBox.cs" id="1_1s3cr"]
+[ext_resource type="Texture2D" uid="uid://b8q7tniscp24u" path="res://UI/Resources/Elements/userInputBox.png" id="2_4senf"]
 
 [node name="PlayerTextBox" type="Control"]
 layout_mode = 3
@@ -12,6 +13,8 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextEdit" type="TextEdit" parent="."]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,3 +25,11 @@ theme_override_colors/background_color = Color(0.849621, 0.849621, 0.849621, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 script = ExtResource("1_1s3cr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("2_4senf")
+expand_mode = 2
