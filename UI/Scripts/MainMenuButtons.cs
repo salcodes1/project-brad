@@ -26,7 +26,9 @@ public partial class MainMenuButtons : VBoxContainer
 	{
 		GD.Print("Options!");
 
-		// TODO: Implement options menu, perhaps for sound on/off, or something like that
+		this.Visible = false;
+
+		GetNode<VBoxContainer>("../OptionsButtons").Visible = true;
 	}
 
 	// buttons are in same scene, since it's very lightweight stuff
