@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=13 format=3 uid="uid://brcf15xook2sp"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_y5ytl"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_boe2m"]
+[ext_resource type="Texture2D" uid="uid://chm6wsl66orx3" path="res://Art/Judy/judy3closed.png" id="3_keuv8"]
+[ext_resource type="Texture2D" uid="uid://bsyqn4xw1sr46" path="res://Art/Judy/judy3open.png" id="4_w1f7y"]
+[ext_resource type="AudioStream" uid="uid://c41dcawlabywe" path="res://Art/Judy/typewriter-1-end.wav" id="5_6b8f8"]
+[ext_resource type="Texture2D" uid="uid://u26fal1m6j03" path="res://Art/Judy/judy1closed.png" id="6_j21w3"]
+[ext_resource type="Texture2D" uid="uid://c4bo48t1oxlm0" path="res://Art/Judy/judy1open.png" id="7_yjneh"]
+[ext_resource type="Texture2D" uid="uid://c7gimc2cjr3i2" path="res://Art/Judy/judy41open.png" id="8_lkyqd"]
+[ext_resource type="Texture2D" uid="uid://dw4x0fxtvd7y2" path="res://Art/Judy/judy41closed.png" id="9_wp7yj"]
+[ext_resource type="Texture2D" uid="uid://77ute0lg374r" path="res://Art/Judy/judy2closed.png" id="10_nqn3h"]
+[ext_resource type="Texture2D" uid="uid://cxsmidny2gcct" path="res://Art/Judy/judy2open.png" id="11_tnbr0"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="12_3j01w"]
+
+[resource]
+script = ExtResource("12_3j01w")
+CodeName = "Defendant"
+PublicName = "Defendant"
+Background = "The player acts as the Defendant character, having full control over their speech. The Defendant represent themselves in court. !!!As the AI director,  you may not ever, under any circumstances, generate any responses on their behalf!!!"
+NeutralOpen = ExtResource("7_yjneh")
+NeutralClosed = ExtResource("6_j21w3")
+ThinkingOpen = ExtResource("11_tnbr0")
+ThinkingClosed = ExtResource("10_nqn3h")
+SurprisedOpen = ExtResource("9_wp7yj")
+SurprisedClosed = ExtResource("8_lkyqd")
+ConfidentOpen = ExtResource("4_w1f7y")
+ConfidentClosed = ExtResource("3_keuv8")
+BlurbSounds = Array[AudioStream]([ExtResource("1_y5ytl"), ExtResource("2_boe2m")])
+EndSound = ExtResource("5_6b8f8")

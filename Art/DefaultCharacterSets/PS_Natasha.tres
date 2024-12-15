@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=13 format=3 uid="uid://bfku05pn20su6"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_4pvci"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_drk8x"]
+[ext_resource type="Texture2D" uid="uid://cecglwx4f1oei" path="res://Art/Natasha/nat4closed.png" id="3_6py00"]
+[ext_resource type="Texture2D" uid="uid://yx5f51rkimtg" path="res://Art/Natasha/nat4open.png" id="4_1jb38"]
+[ext_resource type="AudioStream" uid="uid://c41dcawlabywe" path="res://Art/Judy/typewriter-1-end.wav" id="5_n3r6j"]
+[ext_resource type="Texture2D" uid="uid://d3ppiyqx7d1ve" path="res://Art/Natasha/nat1closed.png" id="6_pxwkl"]
+[ext_resource type="Texture2D" uid="uid://choq0u3cf0521" path="res://Art/Natasha/nat1open.png" id="7_g8sur"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="8_05gm8"]
+[ext_resource type="Texture2D" uid="uid://xjqxmqsngi7k" path="res://Art/Natasha/nat3closed.png" id="8_nw7me"]
+[ext_resource type="Texture2D" uid="uid://djw0v07d44pih" path="res://Art/Natasha/nat2_closed.png" id="8_qypts"]
+[ext_resource type="Texture2D" uid="uid://coagsnwkx3qat" path="res://Art/Natasha/nat3open.png" id="9_2pws1"]
+[ext_resource type="Texture2D" uid="uid://d1kam8ouubgnp" path="res://Art/Natasha/nat2open.png" id="9_jo88j"]
+
+[resource]
+script = ExtResource("8_05gm8")
+CodeName = "DefendantLawyer"
+PublicName = "Natasha Robertson"
+Background = "The player is in control of Natasha Robertson, a famous lawyer. The player is in control of all of her actions. As AI Director, you may not *EVER* do anything on this character's behalf, including but not limited to, generating CharacterReplies."
+NeutralOpen = ExtResource("7_g8sur")
+NeutralClosed = ExtResource("6_pxwkl")
+ThinkingOpen = ExtResource("9_2pws1")
+ThinkingClosed = ExtResource("8_nw7me")
+SurprisedOpen = ExtResource("9_jo88j")
+SurprisedClosed = ExtResource("8_qypts")
+ConfidentOpen = ExtResource("4_1jb38")
+ConfidentClosed = ExtResource("3_6py00")
+BlurbSounds = Array[AudioStream]([ExtResource("1_4pvci"), ExtResource("2_drk8x")])
+EndSound = ExtResource("5_n3r6j")

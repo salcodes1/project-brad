@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=13 format=3 uid="uid://d3igdi1ikyclv"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_ea7ug"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_ql7dr"]
+[ext_resource type="Texture2D" uid="uid://chm6wsl66orx3" path="res://Art/Judy/judy3closed.png" id="3_2tqa7"]
+[ext_resource type="Texture2D" uid="uid://bsyqn4xw1sr46" path="res://Art/Judy/judy3open.png" id="4_252rm"]
+[ext_resource type="AudioStream" uid="uid://c41dcawlabywe" path="res://Art/Judy/typewriter-1-end.wav" id="5_dq6on"]
+[ext_resource type="Texture2D" uid="uid://u26fal1m6j03" path="res://Art/Judy/judy1closed.png" id="6_uxt48"]
+[ext_resource type="Texture2D" uid="uid://c4bo48t1oxlm0" path="res://Art/Judy/judy1open.png" id="7_pdsnw"]
+[ext_resource type="Texture2D" uid="uid://c7gimc2cjr3i2" path="res://Art/Judy/judy41open.png" id="8_bgaak"]
+[ext_resource type="Texture2D" uid="uid://dw4x0fxtvd7y2" path="res://Art/Judy/judy41closed.png" id="9_dwnlt"]
+[ext_resource type="Texture2D" uid="uid://77ute0lg374r" path="res://Art/Judy/judy2closed.png" id="10_akntq"]
+[ext_resource type="Texture2D" uid="uid://cxsmidny2gcct" path="res://Art/Judy/judy2open.png" id="11_mjxnr"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="12_ufe60"]
+
+[resource]
+script = ExtResource("12_ufe60")
+CodeName = "PlaintiffLawyer"
+PublicName = "MRS. Kalvin"
+Background = "She is a fierce lawyer for Lexmark."
+NeutralOpen = ExtResource("7_pdsnw")
+NeutralClosed = ExtResource("6_uxt48")
+ThinkingOpen = ExtResource("11_mjxnr")
+ThinkingClosed = ExtResource("10_akntq")
+SurprisedOpen = ExtResource("9_dwnlt")
+SurprisedClosed = ExtResource("8_bgaak")
+ConfidentOpen = ExtResource("4_252rm")
+ConfidentClosed = ExtResource("3_2tqa7")
+BlurbSounds = Array[AudioStream]([ExtResource("1_ea7ug"), ExtResource("2_ql7dr")])
+EndSound = ExtResource("5_dq6on")

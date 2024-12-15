@@ -18,26 +18,26 @@ public class PropertyChannels
     public int CurrentIndex = 0;
 }
 
-public partial class LlmEvent : Node
+public partial class LlmParser : Node
 {
     private readonly string _instructions;
 
     private readonly System.Collections.Generic.Dictionary<string, PropertyChannels> KV = new();
-    private OnEventEnd _onEventEndCallback;
+    private OnParseEnd _onParseEndCallback;
     private bool _finished = false;
 
     public delegate void OnPropertyUpdate(string name, string value, int index);
 
-    public delegate void OnEventEnd();
+    public delegate void OnParseEnd();
 
-    public LlmEvent(Node parent, string instructions)
+    public LlmParser(Node parent, string instructions)
     {
         _instructions = instructions;
     }
 
-    public void AddOnEventEndCallback(OnEventEnd callback)
+    public void AddOnParseEndCallback(OnParseEnd callback)
     {
-        _onEventEndCallback = callback;
+        _onParseEndCallback = callback;
     }
 
     public void StartProcessing(ChatSession session, InferenceParams inferenceParams)
@@ -80,7 +80,7 @@ public partial class LlmEvent : Node
             finally
             {
                 _finished = true;
-                _onEventEndCallback?.Invoke();
+                _onParseEndCallback?.Invoke();
                 EndAllProperties();
                 // QueueFree();
             }

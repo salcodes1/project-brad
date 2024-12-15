@@ -89,11 +89,10 @@ unique_name_in_owner = true
 
 [node name="BlurbTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.1
+wait_time = 0.13
 autostart = true
 
 [node name="NextButton" type="Button" parent="."]
-visible = false
 z_index = 1073
 layout_mode = 1
 anchors_preset = -1

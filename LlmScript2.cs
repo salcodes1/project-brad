@@ -86,7 +86,7 @@ public partial class LlmScript2 : Node
 
         string instructions =
             $"Please provide a single CharacterReply from one of the present characters in response to the player (the defendant) who has said this: {userInput}";
-        var @event = new LlmEvent(this, instructions);
+        var @event = new LlmParser(this, instructions);
         @event.StartProcessing(session, inferenceParams);
         _ = new QueuedCharacterReply(@event, Scenario.Characters, _charBox);
     }
@@ -109,7 +109,7 @@ public partial class LlmScript2 : Node
 
         string instructions =
             $"Please provide a single CharacterReply from one of the present characters (aside from the Defendant).";
-        var @event = new LlmEvent(this, instructions);
+        var @event = new LlmParser(this, instructions);
         @event.StartProcessing(session, inferenceParams);
         _ = new QueuedCharacterReply(@event, Scenario.Characters, _charBox);
     }
