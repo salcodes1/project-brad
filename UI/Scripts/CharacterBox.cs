@@ -13,6 +13,8 @@ public partial class CharacterBox : Control
     private AudioStreamPlayer _audioStreamPlayer;
     private Queue<CharacterBoxEvent> _characterBoxEventQueue = new();
     private CharacterBoxEvent _currentEvent;
+    private TextEdit _playerInputBox;
+    private TextureRect _advanceButtonTex;
     private string _lastLine;
     private int _lineNum = 0;
     private RandomNumberGenerator _randomGen = new();
@@ -23,6 +25,8 @@ public partial class CharacterBox : Control
         set => _transcriptionLabel.Text = value;
     }
 
+    [Export] public LlmScript2 LlmManager;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -30,6 +34,8 @@ public partial class CharacterBox : Control
         _leftPortrait = GetNode<CharacterPortrait>("%LeftPortrait");
         _rightPortrait = GetNode<CharacterPortrait>("%RightPortrait");
         _audioStreamPlayer = GetNode<AudioStreamPlayer>("%AudioPlayer");
+        _playerInputBox = GetNode<TextEdit>("%PlayerInputBox");
+        _advanceButtonTex = GetNode<TextureRect>("%AdvanceButtonTex");
 
         _rightPortrait.SetFlipped(true);
     }
@@ -43,14 +49,20 @@ public partial class CharacterBox : Control
     {
         if (_currentEvent == null && !_characterBoxEventQueue.TryDequeue(out _currentEvent))
             return;
-        
-        if(_currentEvent.LineUpdates.Count > 0) 
+
+
+        if (_currentEvent.LineUpdates.Count > 0)
             SetCharacterSay(_currentEvent);
     }
 
     public void SetCharacterSay(CharacterBoxEvent @event)
     {
         if (@event.LeftCharacter == null) return;
+        
+        GetNode<Control>("PlayerThink").Visible = false;
+        GetNode<Control>("CharactersSpeak").Visible = true;
+        OnPlayerInputChange();
+        
         var line = @event.LineUpdates.Dequeue();
         var open = _randomGen.Randf() > 0.5f;
         switch (@event.LeftEmotion)
@@ -147,7 +159,43 @@ public partial class CharacterBox : Control
                 _characterBoxEventQueue.TryDequeue(out _currentEvent);
             }
         }
+
+        if (_currentEvent == null)
+        {
+            GetNode<Control>("PlayerThink").Visible = true;
+            GetNode<Control>("CharactersSpeak").Visible = false;
+        }
     }
+
+    void OnPlayerInputChange()
+    {
+        if (_playerInputBox.Text.Length > 0)
+        {
+            _advanceButtonTex.Texture = GD.Load<Texture2D>("res://Art/Other/send_asset.png");
+            GetNode<Label>("%AdvanceButtonLabel").Text = "REPLY";
+        }
+        else
+        {
+            _advanceButtonTex.Texture = GD.Load<Texture2D>("res://Art/Other/skip_asset.png");
+            GetNode<Label>("%AdvanceButtonLabel").Text = "SKIP";
+        }
+    }
+
+    void OnAdvanceButtonPressed()
+    {
+        if (_playerInputBox.Text.Length > 0)
+        {
+            LlmManager.NewReplyUser(_playerInputBox.Text);
+            _playerInputBox.Text = "";
+        }
+        else
+        {
+            LlmManager.NewReply();
+        }
+
+        GetNode<Control>("PlayerThink").Visible = false;
+        GetNode<Control>("CharactersSpeak").Visible = false;
+    } 
 }
 
 static class StringBBTagExtensions

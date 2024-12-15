@@ -16,7 +16,6 @@ public partial class StartSceneButton : CanvasLayer
 	public void StartScenePressed()
 	{
 		GetNode<Button>("StartButton").Visible = false;
-		GetNode<Button>("AdvanceButton").Visible = true;
 		GetNode<Control>("CharacterBox").Visible = true;
 	}
 }

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3cye427mh1xv"]
+[gd_scene load_steps=5 format=3 uid="uid://bjtic248etu12"]
 
 [ext_resource type="Script" path="res://LlmScript2.cs" id="1_x83fi"]
 [ext_resource type="PackedScene" uid="uid://cpi4mfj8m8x15" path="res://UI/Scenes/CharacterBox.tscn" id="2_50ek7"]
 [ext_resource type="Resource" uid="uid://c85fgma4bl85u" path="res://Gameplay/Scenarios/Lexmark/Scenario_Lexmark.tres" id="2_aerms"]
 [ext_resource type="Texture2D" uid="uid://cu8p7haj6bqlf" path="res://Art/Backdrops/courtroom-1.png" id="3_o353x"]
-[ext_resource type="PackedScene" uid="uid://cms8b2jgsvhbx" path="res://UI/Scenes/PlayerTextBox.tscn" id="5_7fxpd"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -46,28 +45,7 @@ mouse_default_cursor_shape = 13
 texture = ExtResource("3_o353x")
 expand_mode = 3
 
-[node name="CharacterBox" parent="CanvasLayer" instance=ExtResource("2_50ek7")]
+[node name="CharacterBox" parent="CanvasLayer" node_paths=PackedStringArray("LlmManager") instance=ExtResource("2_50ek7")]
 unique_name_in_owner = true
 mouse_default_cursor_shape = 6
-
-[node name="PlayerTextBox" parent="CanvasLayer" instance=ExtResource("5_7fxpd")]
-z_index = 2
-anchors_preset = -1
-anchor_top = 0.926852
-metadata/_edit_use_anchors_ = true
-
-[node name="AdvanceButton" type="Button" parent="CanvasLayer"]
-z_index = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 805.0
-offset_top = 453.0
-offset_right = -805.0
-offset_bottom = -453.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 81
-text = "Next"
-
-[connection signal="pressed" from="CanvasLayer/AdvanceButton" to="LlmManager" method="NewReply"]
+LlmManager = NodePath("../../LlmManager")

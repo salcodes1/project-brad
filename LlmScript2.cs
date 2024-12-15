@@ -103,7 +103,8 @@ public partial class LlmScript2 : Node
             SamplingPipeline = new DefaultSamplingPipeline()
             {
                 Grammar = new Grammar(grammar, "root"),
-                RepeatPenalty = 1.3f
+                RepeatPenalty = 1.3f,
+                RepeatPenaltyCount = 3,
             },
         };
 

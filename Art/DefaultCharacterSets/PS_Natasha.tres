@@ -17,7 +17,7 @@
 script = ExtResource("8_05gm8")
 CodeName = "DefendantLawyer"
 PublicName = "Natasha Robertson"
-Background = "The player is in control of Natasha Robertson, a famous lawyer. The player is in control of all of her actions. As AI Director, you may not *EVER* do anything on this character's behalf, including but not limited to, generating CharacterReplies."
+Background = "The player is in control of Natasha Robertson, a famous lawyer that represents the absent Defendant in court. The player is in control of all of her actions. As AI Director, you may not *EVER* do anything on this character's behalf, including but not limited to, generating CharacterReplies."
 NeutralOpen = ExtResource("7_g8sur")
 NeutralClosed = ExtResource("6_pxwkl")
 ThinkingOpen = ExtResource("9_2pws1")
