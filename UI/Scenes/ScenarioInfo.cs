@@ -38,6 +38,9 @@ public partial class ScenarioInfo : Control
 		OptionsButtonNode.EmitSignal("pressed");
 
 		GD.Print("Back to Main Menu!");
+		
+		var audioNode = GetNode<AudioStreamPlayer>("MenuMusic");
+		var soundPosition = audioNode.GetPlaybackPosition();
 
 		GetTree().Root.AddChild(menuSceneInst);
 		var childnum = GetTree().Root.GetChildCount();
@@ -45,6 +48,9 @@ public partial class ScenarioInfo : Control
 		{
 			GetTree().Root.RemoveChild(GetTree().Root.GetChild(i, true));
 		}
+		
+		var newAudioNode = menuSceneInst.GetNode<AudioStreamPlayer>("MenuMusic");
+		newAudioNode.Seek(soundPosition);
 	}
 
 	public void StartGame()

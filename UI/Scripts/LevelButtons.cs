@@ -27,17 +27,19 @@ public partial class LevelButtons : GridContainer
 	{
 		var scenario = GD.Load<LlmScenario>(scenarioPath);
 
-		//var gameSceneInst = GD.Load<PackedScene>("res://in_game.tscn").Instantiate();
-
 		var scenarioScreen = GD.Load<PackedScene>("res://UI/Scenes/ScenarioInfo.tscn").Instantiate<ScenarioInfo>();
 		scenarioScreen.SetScenario(scenario);
 		
-		//var LlmNode = gameSceneInst.GetNode<LlmScript2>("LlmManager");
-		//LlmNode.Scenario = (LlmScenario)scenario;
-		
 		GD.Print("Looking at scenario in: " + scenario.ResourcePath);
 		
+		var audioNode = GetNode<AudioStreamPlayer>("../MenuMusic");
+		var soundPosition = audioNode.GetPlaybackPosition();
+		audioNode.GetParent().RemoveChild(audioNode);
+		scenarioScreen.AddChild(audioNode);
+
 		GetTree().Root.AddChild(scenarioScreen);
 		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0, true));
+
+		audioNode.Seek(soundPosition);
 	}
 }

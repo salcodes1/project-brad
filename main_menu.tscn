@@ -206,10 +206,21 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_wv7w7")
 text = "Back to Main Menu"
 
+[node name="Disclaimer" type="RichTextLabel" parent="OptionsButtons"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+theme_override_fonts/normal_font = ExtResource("4_akigl")
+theme_override_font_sizes/normal_font_size = 20
+text = "Copyright Disclaimer: We use music from the video game Ace Attorney for the menu. We believe this constitues fair use, as it is being used for a school project, not being made public in some way to replace the original, and certainly not being used for profit or claiming it to be our own musical work."
+fit_content = true
+
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_e3m23")
-volume_db = -8.0
+volume_db = -12.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MainMenuButtons/PlayButton" to="MainMenuButtons" method="PlayButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/OptionsButton" to="MainMenuButtons" method="OptionsButtonPressed"]
