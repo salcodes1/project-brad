@@ -23,22 +23,21 @@ public partial class LevelButtons : GridContainer
 		GetNode<VBoxContainer>("../MainMenuButtons").Visible = true;
 	}
 
-	public void StartGame(string scenarioPath)
+	public void ReadScenario(string scenarioPath)
 	{
 		var scenario = GD.Load<LlmScenario>(scenarioPath);
 
-		var gameSceneInst = GD.Load<PackedScene>("res://in_game.tscn").Instantiate();
+		//var gameSceneInst = GD.Load<PackedScene>("res://in_game.tscn").Instantiate();
 
 		var scenarioScreen = GD.Load<PackedScene>("res://UI/Scenes/ScenarioInfo.tscn").Instantiate<ScenarioInfo>();
 		scenarioScreen.SetScenario(scenario);
 		
-		var LlmNode = gameSceneInst.GetNode<LlmScript2>("LlmManager");
+		//var LlmNode = gameSceneInst.GetNode<LlmScript2>("LlmManager");
+		//LlmNode.Scenario = (LlmScenario)scenario;
 		
-		LlmNode.Scenario = (LlmScenario)scenario;
-		
-		GD.Print("Scenario set to: " + scenario.ResourcePath);
+		GD.Print("Looking at scenario in: " + scenario.ResourcePath);
 		
 		GetTree().Root.AddChild(scenarioScreen);
-		GetTree().Root.RemoveChild(GetTree().CurrentScene);
+		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0, true));
 	}
 }

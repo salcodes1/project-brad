@@ -26,6 +26,7 @@ CardTarget = Vector2(321, 263)
 [node name="PortraitCard" type="TextureRect" parent="."]
 unique_name_in_owner = true
 z_index = 1
+layout_mode = 0
 offset_right = 452.0
 offset_bottom = 554.0
 texture = ExtResource("1_ohpxb")
@@ -72,6 +73,7 @@ flat = true
 
 [node name="Mouse" type="TextureRect" parent="PortraitCard"]
 z_index = 1
+layout_mode = 0
 offset_left = 307.0
 offset_top = 426.0
 offset_right = 450.0
@@ -104,6 +106,11 @@ unique_name_in_owner = true
 layer = 2
 visible = false
 
+[node name="Button" type="Button" parent="CenterLayer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="CenterPanel" type="ColorRect" parent="CenterLayer"]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 0)
@@ -130,3 +137,4 @@ bbcode_enabled = true
 text = "Natasha is a bright, intelligent lawyer."
 
 [connection signal="button_down" from="PortraitCard/Button" to="." method="Reveal"]
+[connection signal="pressed" from="CenterLayer/Button" to="." method="Putback"]

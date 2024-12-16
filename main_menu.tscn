@@ -158,15 +158,14 @@ theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
 text = "NYT v. Sullivan"
 
-[node name="Case8" type="Button" parent="LevelButtons"]
+[node name="Empty Space" type="Button" parent="LevelButtons"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
-text = "CUSTOM!?!?!?!?"
 
 [node name="BackButton" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
@@ -215,8 +214,8 @@ autoplay = true
 [connection signal="pressed" from="MainMenuButtons/PlayButton" to="MainMenuButtons" method="PlayButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/OptionsButton" to="MainMenuButtons" method="OptionsButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/QuitButton" to="MainMenuButtons" method="QuitButtonPressed"]
-[connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="StartGame" binds= ["res://Gameplay\\\\Scenarios\\\\Lexmark\\\\Scenario_Lexmark.tres"]]
-[connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
+[connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Lexmark/Scenario_Lexmark.tres"]]
+[connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
 [connection signal="pressed" from="LevelButtons/BackButton" to="LevelButtons" method="BackButtonPressed"]
 [connection signal="pressed" from="OptionsButtons/MusicButton" to="OptionsButtons" method="MusicButtonPressed"]
 [connection signal="pressed" from="OptionsButtons/BackButton" to="OptionsButtons" method="BackButtonPressed"]

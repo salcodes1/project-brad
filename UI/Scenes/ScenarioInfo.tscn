@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8ebe8ullimgf"]
+[gd_scene load_steps=9 format=3 uid="uid://c8ebe8ullimgf"]
 
 [ext_resource type="Script" path="res://UI/Scenes/ScenarioInfo.cs" id="1_cmmqu"]
 [ext_resource type="Texture2D" uid="uid://dmnx20k41us17" path="res://UI/Resources/Elements/v1text.png" id="2_bg1pc"]
 [ext_resource type="FontFile" uid="uid://7eqpm3yt2bgl" path="res://UI/Resources/Fonts/CourierPrime-Regular.ttf" id="3_pxyyo"]
 [ext_resource type="Texture2D" uid="uid://c5po4v0768h3w" path="res://Art/Other/skip_asset.png" id="4_csdrd"]
 [ext_resource type="FontFile" uid="uid://c1x5de1uf4rko" path="res://UI/Resources/Fonts/CourierPrime-Bold.ttf" id="5_n60yl"]
+[ext_resource type="Texture2D" uid="uid://yqifypf4qj1q" path="res://Art/Other/back_asset.png" id="6_5olcv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xgbua"]
 texture = ExtResource("2_bg1pc")
@@ -106,3 +107,33 @@ label_settings = SubResource("LabelSettings_0yy3m")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 1177.0
+offset_top = 629.0
+offset_right = 1428.0
+offset_bottom = 910.0
+icon = ExtResource("6_5olcv")
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameLabel" type="Label" parent="Button2"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 244.0
+offset_right = 236.0
+offset_bottom = 282.0
+theme_override_colors/font_shadow_color = Color(0.381703, 0.381703, 0.381703, 1)
+theme_override_colors/font_outline_color = Color(0.336608, 0.336608, 0.336608, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+text = "BACK"
+label_settings = SubResource("LabelSettings_0yy3m")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Button" to="." method="StartGame"]
+[connection signal="pressed" from="Button2" to="." method="BackButtonPressed"]
