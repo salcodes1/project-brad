@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://bdmtu518p1nc4"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_qa4r6"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_v22q7"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_oogoa"]
+[ext_resource type="Texture2D" uid="uid://38jmu13fpu5v" path="res://Art/Witnesses/witnessDclosed.png" id="3_3u3yb"]
+[ext_resource type="Texture2D" uid="uid://cf1mogblcpfna" path="res://Art/Witnesses/witnessDopen.png" id="4_xu6qg"]
+[ext_resource type="Texture2D" uid="uid://b6mludgb012pj" path="res://Art/Witnesses/witnessDclosed_tnk.png" id="5_spmj5"]
+[ext_resource type="Texture2D" uid="uid://sf4x4ym8o7bw" path="res://Art/Witnesses/witnessDopen_tnk.png" id="6_8r7kf"]
+
+[resource]
+script = ExtResource("1_v22q7")
+CodeName = "LawyerBrief"
+PublicName = "Mr. Brooks"
+Background = "Mr. Brooks is in the court, and has written a amicus brief. He can talk if the lawyers ask him questions, but he shouldn't just in unless he is officially asked. The declaration provided by Daniel J. Brooks presents a formal opposition to the motion by The Andy Warhol Foundation for the Visual Arts, Inc. to file a reply amicus curiae brief supporting the defendants-appellants Richard Prince, Gagosian Gallery Inc., and Lawrence Gagosian in an ongoing legal dispute. Brooks, representing plaintiff-appellee Patrick Cariou, asserts that the request by the Warhol Foundation is both unusual and unnecessary, given the ample representation and extensive submissions already provided by the defendants’ legal team, which includes two law firms and seven attorneys, accompanied by two substantial briefs.
+
+Brooks argues that public interests potentially favoring the appellants are thoroughly presented through three existing amicus briefs that support the appellants' position; two of these briefs advocate for the reversal of the district court's decision, while another critiques the district court's approach to fair use analysis. In contrast, the appellee has submitted a single brief and has the support of one amicus brief from the American Society of Media Photographers, Inc., and the Picture Archive Council of America, Inc.
+
+The declaration points out that the Warhol Foundation's proposed reply brief does not clearly address any new aspects or arguments that were not already discussed in their initial amicus brief, making it redundant. Furthermore, Brooks cites relevant case law to highlight inefficiencies and potential abuses associated with redundant amicus briefs, suggesting these delay judicial proceedings unnecessarily.
+
+The declaration also highlights the potentially conflicting roles due to the relationship between Richard Prince's representation and the Warhol Foundation in previous significant litigations. Using past judgments and legal standards, Brooks underscores the importance of judicial efficiency and the avoidance of superfluous legal documentation.
+
+In summary, Brooks firmly requests that the motion for the Warhol Foundation to file a reply amicus brief be denied, stressing the sufficiency of current submissions and emphasizing the need to cease further unnecessary legal filings for the effectiveness of judicial processes. This document signifies an appeal for concise and meaningful legal discourse within the framework of the ongoing appellate litigation.
+"
+NeutralOpen = ExtResource("4_xu6qg")
+NeutralClosed = ExtResource("3_3u3yb")
+ThinkingOpen = ExtResource("6_8r7kf")
+ThinkingClosed = ExtResource("5_spmj5")
+SurprisedOpen = ExtResource("4_xu6qg")
+SurprisedClosed = ExtResource("3_3u3yb")
+ConfidentOpen = ExtResource("4_xu6qg")
+ConfidentClosed = ExtResource("3_3u3yb")
+BlurbSounds = Array[AudioStream]([ExtResource("1_qa4r6"), ExtResource("2_oogoa")])

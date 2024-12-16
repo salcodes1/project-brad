@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://7xxnw11wgoa6"]
+
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_5aoax"]
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_f5ya7"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_kx4aw"]
+[ext_resource type="Texture2D" uid="uid://sxajq6wfjmtg" path="res://Art/Witnesses/witnessBclosed.png" id="3_dw4de"]
+[ext_resource type="Texture2D" uid="uid://dim0kepfrk2p1" path="res://Art/Witnesses/witnessBopen.png" id="4_777ix"]
+[ext_resource type="Texture2D" uid="uid://b4yds5og5ccpj" path="res://Art/Witnesses/witnessBclosed_tnk.png" id="5_kedqu"]
+[ext_resource type="Texture2D" uid="uid://d37t2226o6hxr" path="res://Art/Witnesses/witnessBopen_tnk.png" id="6_vjutx"]
+
+[resource]
+script = ExtResource("1_5aoax")
+CodeName = "AndyWarholBrief"
+PublicName = "Mr. Art"
+Background = "This is an amicus brief written by the Andy Warhol Foundation. Mr. Art is in the court if he needs to be called up by one of the lawyers, and he will speak only if called on as a witness.
+
+This is the brief:
+Corporate Disclosure Statement
+The Andy Warhol Foundation has no parent corporation and no publicly held corporation
+owns ten percent or more of its stock.
+Statement of Interest
+The Foundation advocates for sufficient protections of original works while allowing
+freedom in creating new artistic expressions. Founded after Andy Warhol's death, it
+promotes visual arts and supports artists.
+The Foundation believes that freedom of artistic expression is vital for democratic society.
+Argument Overview
+I. Artistic Expression and Existing Imagery
+Use of existing imagery has been integral in artistic expression for centuries, enabling
+artists to create works that communicate new meanings.
+Richard Prince’s works exemplify this practice within a rich tradition that includes collage
+and appropriation, influencing modern art.
+II. Fair Use Standard Misapplication
+The district court applied an overly narrow fair use standard, insufficiently protecting public
+speech and expression interests.
+Separation between transformative and superseding uses must be recognized;
+transformative uses create new expression and promote public benefit.
+Courts should caution against granting control over expressive market uses to
+copyright owners, which could result in censorship of creativity.
+III. Injunction Criteria
+Clear showing of specific irreparable harm should be required before an injunction is
+granted against artistic expression.
+The district court's injunction ignored critical free speech interests and significant potential
+public benefits from Prince’s work.
+Conclusion
+The district court's judgment should be reversed, and the injunction vacated, as it wrongly
+stifles creative expression and disregards fair use principles."
+NeutralOpen = ExtResource("4_777ix")
+NeutralClosed = ExtResource("3_dw4de")
+ThinkingOpen = ExtResource("6_vjutx")
+ThinkingClosed = ExtResource("5_kedqu")
+SurprisedOpen = ExtResource("4_777ix")
+SurprisedClosed = ExtResource("3_dw4de")
+ConfidentOpen = ExtResource("4_777ix")
+ConfidentClosed = ExtResource("3_dw4de")
+BlurbSounds = Array[AudioStream]([ExtResource("1_f5ya7"), ExtResource("2_kx4aw")])

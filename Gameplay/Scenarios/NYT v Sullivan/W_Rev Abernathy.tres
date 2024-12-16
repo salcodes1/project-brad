@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://c3f5yeu0a0ev6"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_yfl2b"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_ya8al"]
+[ext_resource type="Texture2D" uid="uid://sxajq6wfjmtg" path="res://Art/Witnesses/witnessBclosed.png" id="3_h1qf8"]
+[ext_resource type="Texture2D" uid="uid://dim0kepfrk2p1" path="res://Art/Witnesses/witnessBopen.png" id="4_upxa0"]
+[ext_resource type="Texture2D" uid="uid://b4yds5og5ccpj" path="res://Art/Witnesses/witnessBclosed_tnk.png" id="5_w16tj"]
+[ext_resource type="Texture2D" uid="uid://d37t2226o6hxr" path="res://Art/Witnesses/witnessBopen_tnk.png" id="6_hf17h"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="7_li13j"]
+
+[resource]
+script = ExtResource("7_li13j")
+CodeName = "CivilRightsLeader1"
+PublicName = "Rev. Abernathy"
+Background = "Rev. Abernathy will only speak and give testimony if he is called upon, and will not speak by himself. Here is some information about him, as well as some possible things he could say.
+
+Background Information: Civil rights leader and close ally of Martin Luther King Jr. Testified about police conduct in Montgomery and the broader civil rights struggle.
+Testimony Context:
+Dr. Abernathy was a prominent leader of the Civil Rights Movement and a close associate of Dr. Martin Luther King Jr. He provided testimony regarding the atmosphere of systemic racism and police brutality in Montgomery during the Civil Rights protests. His testimony supported the claims in the ad and contextualized the criticism of the Montgomery Police Department.
+Detailed Testimony Highlights:
+On the content of the ad: Dr. Abernathy explained that the ad’s criticisms were consistent with the experiences of Civil Rights activists at the time, particularly the police’s aggressive actions toward protestors, including unjust arrests and intimidation tactics.
+On his knowledge of the events described: He stated that while the ad may have contained some factual inaccuracies, the spirit of the allegations reflected the oppressive reality faced by African Americans in Montgomery.
+Impact of the movement: “The civil rights struggle in Montgomery brought attention to the systemic injustices that the Black community had endured for generations. The criticism of law enforcement was necessary to highlight these abuses.”"
+NeutralOpen = ExtResource("4_upxa0")
+NeutralClosed = ExtResource("3_h1qf8")
+ThinkingOpen = ExtResource("6_hf17h")
+ThinkingClosed = ExtResource("5_w16tj")
+SurprisedOpen = ExtResource("4_upxa0")
+SurprisedClosed = ExtResource("3_h1qf8")
+ConfidentOpen = ExtResource("4_upxa0")
+ConfidentClosed = ExtResource("3_h1qf8")
+BlurbSounds = Array[AudioStream]([ExtResource("1_yfl2b"), ExtResource("2_ya8al")])

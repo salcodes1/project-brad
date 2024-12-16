@@ -32,24 +32,29 @@ BlurbSounds = Array[AudioStream]([ExtResource("5_rcyr3"), ExtResource("6_4880g")
 script = ExtResource("4_p7lim")
 GeneralInfo = "Basic Information
 Context of the Case:
-A landmark 2023 Supreme Court decision about copyright and fair use in the context of visual art.
+Court case on a decision about copyright and fair use in the context of visual art.
 The case centers on Andy Warhol's use of a photograph of musician Prince taken by Lynn Goldsmith in his artwork.
+
 Why the Plaintiff is Suing:
 Lynn Goldsmith, the original photographer, sued the Andy Warhol Foundation (AWF), alleging that Warhol’s use of her photograph infringed her copyright.
+
+Lynn Goldsmith (Plaintiff):
+A renowned rock-and-roll photographer, Goldsmith is celebrated for capturing iconic images of music legends. Known for her staunch advocacy for photographers’ rights, she sought to protect her creative work and the licensing market it supports.
+
+Andy Warhol Foundation (Defendant):
+A nonprofit organization that manages Andy Warhol’s artistic legacy, the AWF promotes Warhol’s contributions to pop art and advocates for creative freedom and artistic transformation.
+
 Objective Facts:
 Lynn Goldsmith took a black-and-white photograph of Prince in 1981.
 Vanity Fair licensed Goldsmith’s photo in 1984 for use as an \"artist reference\" for Warhol, who created a silkscreen image (the \"Orange Prince\").
 Warhol later created additional variations of Prince using the same photograph without Goldsmith’s knowledge or further licensing.
 After Prince’s death in 2016, Vanity Fair published one of Warhol’s Prince images, prompting Goldsmith to file suit.
-Arguments of Each Side:
-Plaintiff (Lynn Goldsmith):
+
+Arguments for Plaintiff (Lynn Goldsmith):
 Goldsmith’s original photograph was used without further licensing or her consent, violating her exclusive copyright.
 The Prince Series constitutes derivative works rather than transformative ones, as they do not add sufficient new expression or meaning to the original work.
 The AWF's actions impacted the licensing market for Goldsmith’s photograph, undermining her ability to control and profit from her intellectual property.
-Defendant (Andy Warhol Foundation):
-The Prince Series is transformative because Warhol’s works imbue the photograph with a new meaning and artistic expression, reflecting his signature pop-art style.
-The purpose of the artwork shifted from documenting Prince to commenting on fame and celebrity culture.
-Fair use should protect creative reinterpretation, which fosters artistic innovation and cultural progress.
+
 Legal Dispute:
 AWF argued that Warhol’s works transformed Goldsmith's photograph sufficiently to qualify as fair use under the Copyright Act.
 Goldsmith countered that the images were derivative works and required licensing.
@@ -60,6 +65,8 @@ Purpose and character of the use (e.g., commercial vs. educational).
 Nature of the copyrighted work.
 Amount and substantiality of the portion used.
 Effect on the potential market for the original work.
+
+Use the following only as inspiration for the judge, DO NOT QUOTE OR CITE THEM:
 Supreme Court Majority Opinion Highlights (Justice Sotomayor):
 Found that Warhol’s work, though stylistically different, retained Goldsmith’s creative essence and competed in the same market as her photograph. 
 Emphasized that the commercial purpose of Vanity Fair's use of Warhol’s work tipped against fair use.

@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=7 format=3 uid="uid://ccbyfmqgd1wys"]
+
+[ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_6pfsi"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="1_cupqd"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_1hvos"]
+[ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_ptas3"]
+[ext_resource type="Resource" uid="uid://7xxnw11wgoa6" path="res://Gameplay/Scenarios/Cariou v Prince/AB_Andy Warhol Foundation.tres" id="4_reaxb"]
+[ext_resource type="Resource" uid="uid://bdmtu518p1nc4" path="res://Gameplay/Scenarios/Cariou v Prince/AB_Daniel Brooks.tres" id="5_18ejp"]
+
+[resource]
+script = ExtResource("1_cupqd")
+GeneralInfo = "Copyright and fair use case.
+Born in 1963, Patrick Cariou is an acclaimed French photographer with a career spanning over 30 years. His work synthesizes documentary and fine art image making. He’s best known for his portraits of ethnic communities at the edge of society.
+Patrick Cariou, the plaintiff, published Yes Rasta, a book of landscape and portrait photographs that he took while living among Rastafarians in Jamaica.
+Richard Prince is an American painter and photographer. He’s best known as a pioneer of appropriation art, which uses images from pop culture to explore ideas around authenticity and ownership.
+Richard Prince, the defendant, altered and incorporated several Yes Rasta photographs into a series of paintings and collages called Canal Zone.
+Canal Zone was exhibited at New York’s Gagosian Gallery and in Gagosian’s exhibition catalog.
+Cariou sued Prince and Gagosian, claiming that Canal Zone and its exhibition infringed on Cariou’s copyrights in the Yes Rasta photographs.
+District court ruled in favor of Cariou, saying that to qualify for a fair use defense, Prince’s work must “comment on Cariou, on Cariou’s Photos, or on aspects of popular culture closely associated with Cariou or the Photos.”
+Prince and Gagosian appealed, arguing that Prince’s work is transformative and constitutes fair use of Cariou’s copyrighted photographs and that the district court imposed an incorrect legal standard.
+Now we are in a higher court for the appeal. 
+
+Use the following as inspiration for the judge, and DO NOT quote them and DO NOT cite them directly:
+Those works were transformative because Prince’s “composition, presentation, scale, color palette, and media are fundamentally different and new compared to the photographs, as is the expressive nature of [defendant’s] work.”
+
+No evidence that Prince’s work usurped either the primary or derivative market for Cariou’s photographs.
+
+The purpose of the copyright law is “to promote the Progress of Science and useful Arts . . .”  U.S. Const., Art. I, § 8, cl. 8.
+“The fair use of a copyrighted work . . . for purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright. In determining whether the use made of a work in any particular case is a fair use the factors to be considered shall include – (1) the purpose and character of the use, including whether such use is of a commercial nature or is for nonprofit educational purposes; (2) the nature of the copyrighted work; (3) the amount and substantiality of the portion used in relation to the copyrighted work as a whole; and (4) the effect of the use upon the potential market for the value of the copyrighted work.” 17 U.S.C. § 107.
+
+“The use must be productive and must employ the quoted matter in a different manner or for a different purpose from the original. ...[If] the secondary use adds value to the original—if the quoted matter is used as raw material, transformed in the creation of new information, new aesthetics, new insights and understandings—this is the very type of activity that the fair use doctrine intends to protect for the enrichment of society. Transformative uses may include criticizing the quoted work, exposing the character of the original author, proving a fact, or summarizing an idea argued in the original in order to defend or rebut it. They also may include parody, symbolism, aesthetic declarations, and innumerable other uses.” Leval, Toward a Fair Use Standard
+
+“the more transformative the new work, the less will be the significance of other factors, like commercialism, that may weigh against a finding of fair use.” SCOTUS, Campbell v. Acuff-Rose
+
+“nearly all of the illustrative uses listed in the preamble paragraph of § 107, including news reporting, comment, criticism, teaching, scholarship, and research . . . are generally conducted for profit” SCOTUS, Campbell v. Acuff-Rose
+
+““our concern is not whether the secondary use suppresses or even destroys the market for the original work or its potential derivatives, but whether the secondary use usurps the market of the original work.” US Court of Appeals, Blanch v. Koons
+
+“calls for recognition that some works are closer to the core of intended copyright protection than others, with the consequence that fair use is more difficult to establish when the former works are copied.” SCOTUS, Campbell v. Acuff-Rose
+
+The district court based its conclusion that Prince’s work is not transformative in large part on Prince’s deposition testimony that he “do[es]n’t really have a message,” that he was not “trying to create anything with a new meaning or a new message,” and that he “do[es]n’t have any . . . interest in [Cariou’s] original intent.” Cariou
+
+The district court said that Prince “has unfairly damaged both the actual and potential markets for Cariou’s original work and the potential market for derivative use licenses for Cariou’s original work.” Cariou
+
+In regards to the third factor, the district court determined that Prince’s “taking was substantially greater than necessary.” Cariou"
+Characters = Array[Object]([ExtResource("1_6pfsi"), ExtResource("2_1hvos"), ExtResource("3_ptas3"), ExtResource("4_reaxb"), ExtResource("5_18ejp")])
+InitialEvidences = null
