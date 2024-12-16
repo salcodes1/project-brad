@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjtic248etu12"]
+[gd_scene load_steps=5 format=3 uid="uid://uqmk0k7pv648"]
 
 [ext_resource type="Script" path="res://LlmScript2.cs" id="1_x83fi"]
 [ext_resource type="PackedScene" uid="uid://cpi4mfj8m8x15" path="res://UI/Scenes/CharacterBox.tscn" id="2_50ek7"]
