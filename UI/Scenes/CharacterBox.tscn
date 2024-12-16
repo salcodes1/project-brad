@@ -147,16 +147,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Portrait" type="TextureRect" parent="PlayerThink"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 319.0
-offset_right = 643.0
-offset_bottom = 1087.0
-texture = ExtResource("4_cx81j")
-expand_mode = 4
-stretch_mode = 4
-
 [node name="Panel" type="Panel" parent="PlayerThink"]
 z_index = -1
 custom_minimum_size = Vector2(0, 350)
@@ -164,14 +154,36 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 573.0
-offset_top = 531.0
-offset_right = 1856.0
-offset_bottom = 993.0
+offset_left = 299.0
+offset_top = 557.0
+offset_right = 1582.0
+offset_bottom = 1019.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_nbk2l")
+
+[node name="Portrait" type="TextureRect" parent="PlayerThink/Panel"]
+z_index = -1
+layout_mode = 0
+offset_left = 143.0
+offset_top = -517.0
+offset_right = 657.0
+offset_bottom = 138.0
+texture = ExtResource("4_cx81j")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Portrait" type="TextureRect" parent="PlayerThink/Panel/Portrait"]
+modulate = Color(0.172833, 0.172833, 0.172833, 1)
+z_index = -1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 530.0
+offset_bottom = 663.0
+texture = ExtResource("4_cx81j")
+expand_mode = 4
+stretch_mode = 4
 
 [node name="AdvanceButtonTex" type="TextureRect" parent="PlayerThink/Panel"]
 unique_name_in_owner = true
@@ -224,7 +236,7 @@ theme_override_fonts/font = ExtResource("5_a1dkh")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_g1f42")
 theme_override_styles/focus = SubResource("StyleBoxFlat_g1f42")
-placeholder_text = ">Input what you want to say here or press skip..."
+placeholder_text = ">Input what you want to say here or skip your turn..."
 context_menu_enabled = false
 wrap_mode = 1
 scroll_smooth = true
