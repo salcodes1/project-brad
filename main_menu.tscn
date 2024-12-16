@@ -95,7 +95,7 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
-text = "Lexmark v. Static"
+text = "Warhol v. Goldsmith"
 
 [node name="Case2" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
@@ -105,7 +105,7 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
-text = "Warhol v. Goldsmith"
+text = "Doe v. Ciolli"
 
 [node name="Case3" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
@@ -115,7 +115,7 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
-text = "Doe v. Ciolli"
+text = "Counterman v. Colorado"
 
 [node name="Case4" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
@@ -125,19 +125,9 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
-text = "Counterman v. Colorado"
-
-[node name="Case5" type="Button" parent="LevelButtons"]
-custom_minimum_size = Vector2(450, 150)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("4_akigl")
-theme_override_font_sizes/font_size = 30
 text = "Cariou v. Prince"
 
-[node name="Case6" type="Button" parent="LevelButtons"]
+[node name="Case5" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -148,7 +138,7 @@ theme_override_font_sizes/font_size = 30
 text = "Barret v. Rosenthal
 "
 
-[node name="Case7" type="Button" parent="LevelButtons"]
+[node name="Case6" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -158,7 +148,7 @@ theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
 text = "NYT v. Sullivan"
 
-[node name="Case8" type="Button" parent="LevelButtons"]
+[node name="Case7" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -166,7 +156,11 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_akigl")
 theme_override_font_sizes/font_size = 30
-text = "CUSTOM!?!?!?!?"
+text = "Lexmark v. Static"
+
+[node name="EmptySpace" type="Button" parent="LevelButtons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 
 [node name="BackButton" type="Button" parent="LevelButtons"]
 custom_minimum_size = Vector2(450, 150)
@@ -216,8 +210,11 @@ parameters/looping = true
 [connection signal="pressed" from="MainMenuButtons/PlayButton" to="MainMenuButtons" method="PlayButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/OptionsButton" to="MainMenuButtons" method="OptionsButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/QuitButton" to="MainMenuButtons" method="QuitButtonPressed"]
-[connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Lexmark/Scenario_Lexmark.tres"]]
-[connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
+[connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
+[connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Doe v Ciolli/Scenario_Doe_v_Ciolli.tres"]]
+[connection signal="pressed" from="LevelButtons/Case3" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Counterman v Colorado/Scenario_Counterman_v_Colorado.tres"]]
+[connection signal="pressed" from="LevelButtons/Case6" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/NYT v Sullivan/Scenario_NYT_v_Sullivan.tres"]]
+[connection signal="pressed" from="LevelButtons/Case7" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Lexmark/Scenario_Lexmark.tres"]]
 [connection signal="pressed" from="LevelButtons/BackButton" to="LevelButtons" method="BackButtonPressed"]
 [connection signal="pressed" from="OptionsButtons/MusicButton" to="OptionsButtons" method="MusicButtonPressed"]
 [connection signal="pressed" from="OptionsButtons/BackButtonOptions" to="OptionsButtons" method="BackButtonPressed"]

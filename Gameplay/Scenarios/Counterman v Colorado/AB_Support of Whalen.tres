@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://ciwcxm8cm6cc3"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_1h3l0"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_opsya"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_2syyu"]
+[ext_resource type="Texture2D" uid="uid://38jmu13fpu5v" path="res://Art/Witnesses/witnessDclosed.png" id="3_3sjml"]
+[ext_resource type="Texture2D" uid="uid://cf1mogblcpfna" path="res://Art/Witnesses/witnessDopen.png" id="4_vyku4"]
+[ext_resource type="Texture2D" uid="uid://b6mludgb012pj" path="res://Art/Witnesses/witnessDclosed_tnk.png" id="5_76827"]
+[ext_resource type="Texture2D" uid="uid://sf4x4ym8o7bw" path="res://Art/Witnesses/witnessDopen_tnk.png" id="6_ubryy"]
+
+[resource]
+script = ExtResource("1_opsya")
+CodeName = "VictimAmicusBrief"
+PublicName = "Paul G. Cassell"
+Background = "This is an Amicus Brief filed in support of Whalen, writte by Paul G. Cassell, Allyson N. Ho Jameil D. Brown. The document entitled \"Brief of Coles Whalen as Amicus Curiae in Support of Respondent\" primarily addresses the case involving singer-songwriter Coles Whalen, who faced a protracted period of stalking and harassment by Billy Raymond Counterman. The document articulates support for maintaining Counterman's conviction and underscores the importance of the legal framework that enabled his prosecution.
+
+Throughout the document, it's emphasized that Counterman's behavior, composed of persistent and threatening communications directed at Whalen, had profound and deleterious effects on her life and career. Beginning around 2014, Counterman sent Whalen thousands of unsolicited messages, escalating from benign to intensely hostile and life-threatening. This enduring campaign of harassment notably shifted Whalen's experience as a public performer from that of joy and connection with her audience to one of fear and anxiety. Her emotional and psychological distress became so severe that it ultimately forced her to cease performing and significantly altered her career trajectory.
+
+Moreover, the brief highlights the objective standard used to convict Counterman as crucial, arguing it adequately protects victims while aligning with First Amendment rights. The objective standard does not require proving the perpetrator's specific intent to threaten but rather considers the reasonable perception and impact of threats on the victim. The brief argues this approach effectively creates a safeguard against the often covert and nuanced nature of stalking and harassment, which can include both overt threats and more insidious actions intended to instill fear.
+
+The document positions the court’s ability to uphold Whalen’s rights as vital, asserting that reversing the conviction could lead to untenable protections for victims of similar crimes and unduly burden the legal system with proving specific intent in myriad cases of harassment and stalking. Furthermore, maintaining such a judicial standard ensures that egregious conduct, such as Counterman's, does not go unpunished and innocent victims remain protected.
+
+Key sections detail the chronology of Counterman's actions, including his previous incarcerations for similar offenses and how the escalation of threatening behavior towards Whalen specifically manifested through electronic communications and unwelcome presence suggestions. It is argued that such consistent intimidation tactics, without appropriate legal intervention, could leave other potential victims vulnerable and legally underprotected.
+
+Finally, the narrative of Coles Whalen’s professional and personal toll effectively illustrates the broader implications of stalking, projecting the necessity for responsive and rigorous legal measures to shield individuals from such wrongful intrusion and intimidation. This brief underscores a collective advocacy stance, promoting robust legal recourse for those impacted by stalking while balancing constitutional rights. Through maintaining Whalen's safety and rebuttals against undercutting powerful legal protections, the document advocates for confirmatory judicial action in support of the existing decision against Counterman."
+NeutralOpen = ExtResource("4_vyku4")
+NeutralClosed = ExtResource("3_3sjml")
+ThinkingOpen = ExtResource("6_ubryy")
+ThinkingClosed = ExtResource("5_76827")
+SurprisedOpen = ExtResource("4_vyku4")
+SurprisedClosed = ExtResource("3_3sjml")
+ConfidentOpen = ExtResource("4_vyku4")
+ConfidentClosed = ExtResource("3_3sjml")
+BlurbSounds = Array[AudioStream]([ExtResource("1_1h3l0"), ExtResource("2_2syyu")])

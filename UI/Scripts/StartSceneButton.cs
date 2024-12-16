@@ -13,6 +13,17 @@ public partial class StartSceneButton : CanvasLayer
 	{
 	}
 	
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event is InputEventKey eventKey)
+		{
+			if (eventKey.Pressed && eventKey.Keycode == Key.Escape)
+			{
+				GetTree().Quit();
+			}
+		}
+	}
+	
 	public void StartScenePressed()
 	{
 		GetNode<Button>("StartButton").Visible = false;

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=6 format=3 uid="uid://didlweo428d0i"]
+
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="1_4epdl"]
+[ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_qnrhh"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_dy25t"]
+[ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_adnpt"]
+[ext_resource type="Resource" uid="uid://ciwcxm8cm6cc3" path="res://Gameplay/Scenarios/Counterman v Colorado/AB_Support of Whalen.tres" id="4_to6nl"]
+
+[resource]
+script = ExtResource("1_4epdl")
+GeneralInfo = "Case Blurb
+Billy Ray Counterman sent thousands of Facebook messages to singer-songwriter Coles Whalen that implied he was following her around and threatened her death. Counterman was convicted of stalking in Colorado, but the Supreme Court must decide the line between true threats of violence punishable as crimes and free speech protected by the First Amendment.
+Basic Information
+2023 Supreme Court of the United States concerning the line between true threats of violence punishable as crimes and free speech protected by the First Amendment
+Though she was born in Philadelphia, Coles Whalen is an Americana, pop and country singer-songwriter based in Denver. She has toured extensively through the United States and Canada and has released six independent records.
+Billy Raymond Counterman, a Colorado man, repeatedly contacted singer-songwriter Coles Whalen over Facebook in 2014 even though they had never met, sending her “creepy” messages from numerous different accounts even after she repeatedly blocked him
+Some of the messages implied that Counterman was watching her and saying that he wanted her to die or be killed
+At trial, Counterman argued that his messages were not “true threats” and could not form the basis of a criminal prosecution, and to do so would be a violation of his First Amendment rights to free speech
+Counterman was convicted of stalking in Colorado, with his conviction left intact by the Colorado Court of Appeals and Colorado Supreme Court
+Under Colorado law, statements are not free speech if a reasonable person would view the statements as threatening, with no need to prove that the speaker had subjective intent to threaten
+The Supreme Court’s decision found that to establish that a statement is a “true threat” unprotected by the First Amendment, the government must prove that the defendant had some subjective understanding of the statements’ threatening nature, based on a showing no more demanding than recklessness
+
+The First Amendment says “Congress shall make no law . . . abridging the freedom of speech”
+Under Colorado law, it is unlawful to “[r]epeatedly . . . make[ ] any form of communication with another person” in “a manner that would cause a reasonable person to suffer serious emotional distress and does cause that person ... to suffer serious emotional distress.” Colo. Rev. Stat. § 18–3–602(1)(c) (2022)
+“The question presented is whether the First Amendment still requires proof that the defendant had some subjective understanding of the threatening nature of his statements. We hold that it does, but that a mental state of recklessness is sufficient. The State must show that the defendant consciously disregarded a substantial risk that his communications would be viewed as threatening violence. The State need not prove any more demanding form of subjective intent to threaten another” Justice Kagan, opinion
+“A person acts recklessly, in the most common formulation, when he ‘consciously disregard[s] a substantial [and unjustifiable] risk that the conduct will cause harm to another.’” Justice Kagan, opinion
+“That standard involves insufficient concern with risk, rather than awareness of impending harm” Justice Kagan, opinion
+“Where I part ways with the Court is that I would not reach the distinct and more complex question whether a mens rea of recklessness is sufficient for true-threats prosecutions generally. Further, requiring nothing more than a mens rea of recklessness is inconsistent with precedent, history, and the commitment to even harmful speech that the First Amendment enshrines. I therefore respectfully concur only in part and in the judgment.” Justice Sotomayor, concurring
+“Colorado maintains that an objective standard is enough—that is, the government must show that a reasonable person would regard the statement as a threat of violence. Counterman, however, argues that the First Amendment requires a subjective test—that is, the speaker himself must intend or know the threatening nature of the statement. It should be easy to choose between these positions. True threats do not enjoy First Amendment protection, and nearly every other category of unprotected speech may be restricted using an objective standard. Nonetheless, the Court adopts a subjective standard, though not quite the one advanced by Counterman. The Court holds that speakers must recklessly disregard the threatening nature of their speech to lose constitutional protection. Because this unjustifiably grants true threats preferential treatment, I respectfully dissent.” Justice Barrett and Justice Thomas, dissenting"
+Characters = Array[Object]([ExtResource("1_qnrhh"), ExtResource("2_dy25t"), ExtResource("3_adnpt"), ExtResource("4_to6nl")])
+InitialEvidences = null

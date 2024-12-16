@@ -1,32 +1,10 @@
-[gd_resource type="Resource" script_class="LlmScenario" load_steps=14 format=3 uid="uid://bmhfsieb6hu05"]
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=6 format=3 uid="uid://bmhfsieb6hu05"]
 
 [ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_tnjii"]
 [ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_6fjd6"]
 [ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_3st6m"]
 [ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="4_p7lim"]
 [ext_resource type="Resource" uid="uid://crwy0w1w4al7f" path="res://Gameplay/Scenarios/Warhol v Goldsmith/AB_Jeffrey Sedlik.tres" id="4_t8prn"]
-[ext_resource type="Texture2D" uid="uid://deqg6po6x7ixw" path="res://Art/Witnesses/witnessCclosed.png" id="5_hhjjl"]
-[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="5_ibsou"]
-[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="5_rcyr3"]
-[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="6_4880g"]
-[ext_resource type="Texture2D" uid="uid://v0a60sdne1l1" path="res://Art/Witnesses/witnessCopen.png" id="6_b57qu"]
-[ext_resource type="Texture2D" uid="uid://cf2rutg2d0hu" path="res://Art/Witnesses/witnessCclosed_tnk.png" id="7_m11ff"]
-[ext_resource type="Texture2D" uid="uid://b60f2pe2xooo" path="res://Art/Witnesses/witnessCopen_tnk.png" id="8_60agg"]
-
-[sub_resource type="Resource" id="Resource_jcvm0"]
-script = ExtResource("5_ibsou")
-CodeName = "AcademicSupport"
-PublicName = "Prof. Patents"
-Background = "A group of IP law professors, represented by Prof. Patents (she/her), submitted an amicus brief supporting AWF. They contended that Warhol’s work should be considered transformative, emphasizing its commentary on celebrity culture and artistic innovation."
-NeutralOpen = ExtResource("6_b57qu")
-NeutralClosed = ExtResource("5_hhjjl")
-ThinkingOpen = ExtResource("8_60agg")
-ThinkingClosed = ExtResource("7_m11ff")
-SurprisedOpen = ExtResource("6_b57qu")
-SurprisedClosed = ExtResource("5_hhjjl")
-ConfidentOpen = ExtResource("6_b57qu")
-ConfidentClosed = ExtResource("5_hhjjl")
-BlurbSounds = Array[AudioStream]([ExtResource("5_rcyr3"), ExtResource("6_4880g")])
 
 [resource]
 script = ExtResource("4_p7lim")
@@ -68,5 +46,5 @@ Dissent (Justice Kagan):
 Asserted that Warhol’s Prince Series fundamentally altered Goldsmith’s photo, creating an entirely new meaning about the nature of celebrity. 
 Warned that the decision could stifle artistic creativity and reinterpretation.
 "
-Characters = Array[Object]([ExtResource("1_tnjii"), ExtResource("2_6fjd6"), ExtResource("3_3st6m"), ExtResource("4_t8prn"), SubResource("Resource_jcvm0")])
-InitialEvidences = null
+Characters = Array[Object]([ExtResource("1_tnjii"), ExtResource("2_6fjd6"), ExtResource("3_3st6m"), ExtResource("4_t8prn")])
+InitialEvidences = Array[Object]([])

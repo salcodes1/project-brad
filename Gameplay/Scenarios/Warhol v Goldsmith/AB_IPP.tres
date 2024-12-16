@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://b66vpwldptbwc"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_2ngfh"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_4beep"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_6q5vd"]
+[ext_resource type="Texture2D" uid="uid://deqg6po6x7ixw" path="res://Art/Witnesses/witnessCclosed.png" id="3_bik3t"]
+[ext_resource type="Texture2D" uid="uid://v0a60sdne1l1" path="res://Art/Witnesses/witnessCopen.png" id="4_eir0i"]
+[ext_resource type="Texture2D" uid="uid://cf2rutg2d0hu" path="res://Art/Witnesses/witnessCclosed_tnk.png" id="5_4few7"]
+[ext_resource type="Texture2D" uid="uid://b60f2pe2xooo" path="res://Art/Witnesses/witnessCopen_tnk.png" id="6_j1s3f"]
+
+[resource]
+script = ExtResource("1_4beep")
+CodeName = "AcademicSupport"
+PublicName = "Prof. Patents"
+Background = "A group of IP law professors, represented by Prof. Patents (she/her), submitted an amicus brief supporting AWF. They contended that Warhol’s work should be considered transformative, emphasizing its commentary on celebrity culture and artistic innovation."
+NeutralOpen = ExtResource("4_eir0i")
+NeutralClosed = ExtResource("3_bik3t")
+ThinkingOpen = ExtResource("6_j1s3f")
+ThinkingClosed = ExtResource("5_4few7")
+SurprisedOpen = ExtResource("4_eir0i")
+SurprisedClosed = ExtResource("3_bik3t")
+ConfidentOpen = ExtResource("4_eir0i")
+ConfidentClosed = ExtResource("3_bik3t")
+BlurbSounds = Array[AudioStream]([ExtResource("1_2ngfh"), ExtResource("2_6q5vd")])

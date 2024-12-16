@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://b68wkg71xlhm1"]
+
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_2c733"]
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_c2ltj"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_12gt7"]
+[ext_resource type="Texture2D" uid="uid://cghwm0q5qoo6b" path="res://Art/Witnesses/witnessAclosed.png" id="3_gm7xv"]
+[ext_resource type="Texture2D" uid="uid://b0ltiimy3p3b1" path="res://Art/Witnesses/witnessAopen.png" id="4_ijy2b"]
+[ext_resource type="Texture2D" uid="uid://c1id13187kmbq" path="res://Art/Witnesses/witnessAclosed_tnk.png" id="5_8j837"]
+[ext_resource type="Texture2D" uid="uid://fjv2nwp1ikgn" path="res://Art/Witnesses/witnessAopen_tnk.png" id="6_q2fhe"]
+
+[resource]
+script = ExtResource("1_c2ltj")
+CodeName = "EmotionalDistressExpert"
+PublicName = "Dr. Emily Harper"
+Background = "Psychologist testifying on the emotional impact of online harassment."
+NeutralOpen = ExtResource("3_gm7xv")
+NeutralClosed = ExtResource("3_gm7xv")
+ThinkingOpen = ExtResource("6_q2fhe")
+ThinkingClosed = ExtResource("5_8j837")
+SurprisedOpen = ExtResource("4_ijy2b")
+SurprisedClosed = ExtResource("3_gm7xv")
+ConfidentOpen = ExtResource("4_ijy2b")
+ConfidentClosed = ExtResource("3_gm7xv")
+BlurbSounds = Array[AudioStream]([ExtResource("1_2c733"), ExtResource("2_12gt7")])
