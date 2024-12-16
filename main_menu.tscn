@@ -1,12 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbkqr20xjhj3t"]
+[gd_scene load_steps=10 format=3 uid="uid://bbkqr20xjhj3t"]
 
 [ext_resource type="Texture2D" uid="uid://cu8p7haj6bqlf" path="res://Art/Backdrops/courtroom-1.png" id="1_jwr2v"]
 [ext_resource type="FontFile" uid="uid://c1x5de1uf4rko" path="res://UI/Resources/Fonts/CourierPrime-Bold.ttf" id="2_8arbw"]
 [ext_resource type="Script" path="res://UI/Scripts/MainMenuButtons.cs" id="3_huyje"]
 [ext_resource type="FontFile" uid="uid://7eqpm3yt2bgl" path="res://UI/Resources/Fonts/CourierPrime-Regular.ttf" id="4_akigl"]
 [ext_resource type="Script" path="res://UI/Scripts/LevelButtons.cs" id="5_n77db"]
+[ext_resource type="Script" path="res://UI/Scripts/OptionsButtons.cs" id="6_14rmg"]
+[ext_resource type="AudioStream" uid="uid://vwke0kldjuqy" path="res://UI/Resources/Music/Ace Attorney Trilogy OST - Title Theme 4.mp3" id="6_e3m23"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq25e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv7w7"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
@@ -174,9 +179,44 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_qq25e")
 text = "Back to Main Menu"
 
+[node name="OptionsButtons" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 300.0
+offset_right = 1660.0
+offset_bottom = 1000.0
+script = ExtResource("6_14rmg")
+
+[node name="MusicButton" type="Button" parent="OptionsButtons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 50
+text = "Music - ON"
+
+[node name="BackButton" type="Button" parent="OptionsButtons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wv7w7")
+text = "Back to Main Menu"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_e3m23")
+volume_db = -8.0
+autoplay = true
+
 [connection signal="pressed" from="MainMenuButtons/PlayButton" to="MainMenuButtons" method="PlayButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/OptionsButton" to="MainMenuButtons" method="OptionsButtonPressed"]
 [connection signal="pressed" from="MainMenuButtons/QuitButton" to="MainMenuButtons" method="QuitButtonPressed"]
 [connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="StartGame" binds= ["res://Gameplay\\\\Scenarios\\\\Lexmark\\\\Scenario_Lexmark.tres"]]
 [connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="StartGame" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
 [connection signal="pressed" from="LevelButtons/BackButton" to="LevelButtons" method="BackButtonPressed"]
+[connection signal="pressed" from="OptionsButtons/MusicButton" to="OptionsButtons" method="MusicButtonPressed"]
+[connection signal="pressed" from="OptionsButtons/BackButton" to="OptionsButtons" method="BackButtonPressed"]
