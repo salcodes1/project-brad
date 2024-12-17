@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://cj46djy1tkmh5"]
+
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_0b1g8"]
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_46cnk"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_aoe3p"]
+[ext_resource type="Texture2D" uid="uid://38jmu13fpu5v" path="res://Art/Witnesses/witnessDclosed.png" id="3_bnier"]
+[ext_resource type="Texture2D" uid="uid://cf1mogblcpfna" path="res://Art/Witnesses/witnessDopen.png" id="4_78llu"]
+[ext_resource type="Texture2D" uid="uid://b6mludgb012pj" path="res://Art/Witnesses/witnessDclosed_tnk.png" id="5_g0hvq"]
+[ext_resource type="Texture2D" uid="uid://sf4x4ym8o7bw" path="res://Art/Witnesses/witnessDopen_tnk.png" id="6_1yw1h"]
+
+[resource]
+script = ExtResource("1_0b1g8")
+CodeName = "InternetExpert"
+PublicName = "Dr. Alan Weiss"
+Background = "He is a witness who can only give testimony if requested by a lawyer.
+
+Expert on online defamation and the impact of Section 230 on internet speech."
+NeutralOpen = ExtResource("4_78llu")
+NeutralClosed = ExtResource("3_bnier")
+ThinkingOpen = ExtResource("6_1yw1h")
+ThinkingClosed = ExtResource("5_g0hvq")
+SurprisedOpen = ExtResource("4_78llu")
+SurprisedClosed = ExtResource("3_bnier")
+ConfidentOpen = ExtResource("4_78llu")
+ConfidentClosed = ExtResource("3_bnier")
+BlurbSounds = Array[AudioStream]([ExtResource("1_46cnk"), ExtResource("2_aoe3p")])
