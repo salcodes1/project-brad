@@ -84,5 +84,4 @@ stream = ExtResource("6_1hkro")
 volume_db = -20.0
 parameters/looping = true
 
-[connection signal="pressed" from="CanvasLayer/StartButton" to="LlmManager" method="NewReply"]
 [connection signal="pressed" from="CanvasLayer/StartButton" to="CanvasLayer" method="StartScenePressed"]
