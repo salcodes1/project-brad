@@ -38,6 +38,9 @@ public partial class CharacterBox : Control
 		_advanceButtonTex = GetNode<TextureRect>("%AdvanceButtonTex");
 
 		_rightPortrait.SetFlipped(true);
+		
+		GetNode<Control>("PlayerThink").Visible = false;
+		GetNode<Control>("CharactersSpeak").Visible = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

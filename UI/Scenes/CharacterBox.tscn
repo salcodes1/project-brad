@@ -83,21 +83,33 @@ theme_override_constants/margin_top = 85
 theme_override_constants/margin_right = 170
 theme_override_constants/margin_bottom = 80
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CharactersSpeak/Panel/MarginContainer"]
-layout_mode = 2
-horizontal_scroll_mode = 0
-
-[node name="Transcription" type="RichTextLabel" parent="CharactersSpeak/Panel/MarginContainer/ScrollContainer"]
+[node name="Transcription" type="RichTextLabel" parent="CharactersSpeak/Panel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 bbcode_enabled = true
 text = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Regular.ttf]Loading... This might take a minute..."
-fit_content = true
 scroll_following = true
 autowrap_mode = 2
 tab_size = 10
+
+[node name="NextButton" type="Button" parent="CharactersSpeak/Panel/MarginContainer/Transcription"]
+z_index = 1073
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.666667
+anchor_right = 1.00417
+anchor_bottom = 1.01481
+offset_left = -219.734
+offset_top = -531.294
+offset_right = 1661.2
+offset_bottom = 165.781
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1u0eo")
+flat = true
 
 [node name="LeftPortrait" parent="CharactersSpeak" instance=ExtResource("1_ip6cq")]
 unique_name_in_owner = true
@@ -124,23 +136,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 0.13
 autostart = true
-
-[node name="NextButton" type="Button" parent="CharactersSpeak"]
-z_index = 1073
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00260417
-anchor_top = 0.666667
-anchor_right = 1.00417
-anchor_bottom = 1.01481
-offset_left = -6.10417
-offset_top = -358.667
-offset_right = 1874.83
-offset_bottom = 338.408
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1u0eo")
-flat = true
 
 [node name="PlayerThink" type="Control" parent="."]
 anchors_preset = 0
@@ -177,6 +172,7 @@ stretch_mode = 4
 [node name="Portrait" type="TextureRect" parent="PlayerThink/Panel/Portrait"]
 modulate = Color(0.172833, 0.172833, 0.172833, 1)
 z_index = -1
+layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 530.0
@@ -187,6 +183,7 @@ stretch_mode = 4
 
 [node name="AdvanceButtonTex" type="TextureRect" parent="PlayerThink/Panel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 970.0
 offset_top = 189.0
 offset_right = 1144.0
@@ -251,7 +248,7 @@ offset_bottom = 127.0
 text = "MRS. ROBERTSON:"
 label_settings = SubResource("LabelSettings_u47ft")
 
+[connection signal="pressed" from="CharactersSpeak/Panel/MarginContainer/Transcription/NextButton" to="." method="AdvanceCharacterReply"]
 [connection signal="timeout" from="CharactersSpeak/BlurbTimer" to="." method="BlurbTimer"]
-[connection signal="pressed" from="CharactersSpeak/NextButton" to="." method="AdvanceCharacterReply"]
 [connection signal="pressed" from="PlayerThink/Panel/AdvanceButtonTex/PlayerAdvanceButton" to="." method="OnAdvanceButtonPressed"]
 [connection signal="text_changed" from="PlayerThink/Panel/PlayerInputBox" to="." method="OnPlayerInputChange"]

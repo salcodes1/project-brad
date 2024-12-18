@@ -88,6 +88,7 @@ public partial class LlmScript2 : Node
         //     redundancyLength: 5));
         
         _charBox = GetNode<CharacterBox>("%CharacterBox");
+        NewReply();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
