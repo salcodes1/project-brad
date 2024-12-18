@@ -115,6 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 
 [node name="CenterPanel" type="ColorRect" parent="CenterLayer"]
 unique_name_in_owner = true
@@ -140,6 +141,20 @@ theme_override_fonts/normal_font = ExtResource("5_dv7th")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Natasha is a bright, intelligent lawyer."
+
+[node name="CharacterDescription2" type="RichTextLabel" parent="CenterLayer/CenterPanel"]
+unique_name_in_owner = true
+offset_left = 1000.0
+offset_top = 185.0
+offset_right = 1739.0
+offset_bottom = 264.0
+theme_override_colors/default_color = Color(0.693429, 0.69343, 0.693429, 1)
+theme_override_fonts/normal_font = ExtResource("5_dv7th")
+theme_override_fonts/bold_font = ExtResource("4_vhtj1")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]AI Director Brief ▌"
 
 [connection signal="button_down" from="PortraitCard/Button" to="." method="Reveal"]
 [connection signal="pressed" from="CenterLayer/Button" to="." method="Putback"]
