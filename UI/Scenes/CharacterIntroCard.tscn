@@ -1,0 +1,160 @@
+[gd_scene load_steps=8 format=3 uid="uid://coyj2vwek0eli"]
+
+[ext_resource type="Texture2D" uid="uid://ds81efngcwovt" path="res://Art/Other/frame_asset.png" id="1_ohpxb"]
+[ext_resource type="Script" path="res://UI/Scripts/CharacterIntroCard.cs" id="1_pouuq"]
+[ext_resource type="Texture2D" uid="uid://csglv330r607a" path="res://Art/Natasha/nat1closed_angry.png" id="2_38fa6"]
+[ext_resource type="Texture2D" uid="uid://bqsptjjm07a33" path="res://Art/Other/mouse_asset.png" id="3_8srnc"]
+[ext_resource type="FontFile" uid="uid://c1x5de1uf4rko" path="res://UI/Resources/Fonts/CourierPrime-Bold.ttf" id="4_vhtj1"]
+[ext_resource type="FontFile" uid="uid://7eqpm3yt2bgl" path="res://UI/Resources/Fonts/CourierPrime-Regular.ttf" id="5_dv7th"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jsk56"]
+font = ExtResource("4_vhtj1")
+font_size = 33
+font_color = Color(0, 0, 0, 1)
+
+[node name="CharacterIntroCard" type="Control"]
+custom_minimum_size = Vector2(455, 553)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 455.0
+offset_bottom = 553.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pouuq")
+CardTarget = Vector2(321, 263)
+
+[node name="PortraitCard" type="TextureRect" parent="."]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_right = 452.0
+offset_bottom = 554.0
+texture = ExtResource("1_ohpxb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Portrait" type="TextureRect" parent="PortraitCard"]
+unique_name_in_owner = true
+z_index = -1
+layout_mode = 0
+offset_top = 32.0
+offset_right = 452.0
+offset_bottom = 539.0
+texture = ExtResource("2_38fa6")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="PortraitCard"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 403.0
+offset_right = 319.0
+offset_bottom = 495.0
+theme_override_colors/font_shadow_color = Color(0.381703, 0.381703, 0.381703, 1)
+theme_override_colors/font_outline_color = Color(0.336608, 0.336608, 0.336608, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+text = "NATASHA ROBERTSON"
+label_settings = SubResource("LabelSettings_jsk56")
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="PortraitCard"]
+z_index = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="Mouse" type="TextureRect" parent="PortraitCard"]
+z_index = 1
+layout_mode = 0
+offset_left = 307.0
+offset_top = 426.0
+offset_right = 450.0
+offset_bottom = 595.0
+mouse_filter = 2
+texture = ExtResource("3_8srnc")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="MouseSHadow" type="TextureRect" parent="PortraitCard/Mouse"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_8srnc")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="CenterLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="Button" type="Button" parent="CenterLayer"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[node name="CenterPanel" type="ColorRect" parent="CenterLayer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0)
+z_index = -1
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[node name="CharacterDescription" type="RichTextLabel" parent="CenterLayer/CenterPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 263.0
+offset_right = 1656.0
+offset_bottom = 680.0
+theme_override_fonts/normal_font = ExtResource("5_dv7th")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Natasha is a bright, intelligent lawyer."
+
+[node name="CharacterDescription2" type="RichTextLabel" parent="CenterLayer/CenterPanel"]
+unique_name_in_owner = true
+offset_left = 1000.0
+offset_top = 185.0
+offset_right = 1739.0
+offset_bottom = 264.0
+theme_override_colors/default_color = Color(0.693429, 0.69343, 0.693429, 1)
+theme_override_fonts/normal_font = ExtResource("5_dv7th")
+theme_override_fonts/bold_font = ExtResource("4_vhtj1")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]AI Director Brief ▌"
+
+[connection signal="button_down" from="PortraitCard/Button" to="." method="Reveal"]
+[connection signal="pressed" from="CenterLayer/Button" to="." method="Putback"]

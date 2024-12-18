@@ -1,16 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpi4mfj8m8x15"]
+[gd_scene load_steps=12 format=3 uid="uid://cpi4mfj8m8x15"]
 
 [ext_resource type="PackedScene" uid="uid://b77fc4ledwt4l" path="res://UI/Scenes/CharacterPortrait.tscn" id="1_ip6cq"]
 [ext_resource type="Script" path="res://UI/Scripts/CharacterBox.cs" id="1_t3oxy"]
 [ext_resource type="Texture2D" uid="uid://dmnx20k41us17" path="res://UI/Resources/Elements/v1text.png" id="2_omkwy"]
+[ext_resource type="Texture2D" uid="uid://xjqxmqsngi7k" path="res://Art/Natasha/nat3closed.png" id="4_cx81j"]
+[ext_resource type="FontFile" uid="uid://7eqpm3yt2bgl" path="res://UI/Resources/Fonts/CourierPrime-Regular.ttf" id="5_a1dkh"]
+[ext_resource type="Texture2D" uid="uid://c5po4v0768h3w" path="res://Art/Other/skip_asset.png" id="5_fyh83"]
+[ext_resource type="FontFile" uid="uid://c7smjctkk6f3g" path="res://UI/Resources/Fonts/CourierPrime-BoldItalic.ttf" id="6_dmtgt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbk2l"]
 texture = ExtResource("2_omkwy")
 texture_margin_left = 222.669
-texture_margin_top = 106.304
+texture_margin_top = 94.9827
 texture_margin_right = 209.836
 texture_margin_bottom = 80.5955
 region_rect = Rect2(21.7619, 22.6419, 1161.58, 628.337)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u0eo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u47ft"]
+font = ExtResource("6_dmtgt")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1f42"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.756087, 0.756087, 0.756087, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.160269, 0.160269, 0.160269, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_bottom_right = 14
 
 [node name="CharacterBox" type="Control"]
 layout_mode = 3
@@ -21,24 +47,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t3oxy")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="CharactersSpeak" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 730.0
+offset_right = 51.0
+offset_bottom = 770.0
+
+[node name="Panel" type="Panel" parent="CharactersSpeak"]
 z_index = 1
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.006
-anchor_top = 0.676
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.52
-offset_top = -0.0800781
-offset_right = -22.0
+offset_left = -0.24
+offset_top = -27.04
+offset_right = 1866.0
+offset_bottom = 310.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_nbk2l")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CharactersSpeak/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,50 +83,18 @@ theme_override_constants/margin_top = 85
 theme_override_constants/margin_right = 170
 theme_override_constants/margin_bottom = 80
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
-layout_mode = 2
-horizontal_scroll_mode = 0
-
-[node name="Transcription" type="RichTextLabel" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="Transcription" type="RichTextLabel" parent="CharactersSpeak/Panel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 bbcode_enabled = true
-text = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Bold.ttf]	MRS. CLYDE: [font=UI/Resources/Fonts/CourierPrime-Regular.ttf]I am really surprised by the court's decision to uphold Section 230 during such tumultuous times."
-fit_content = true
+text = "[color=black][font_size=30][font=UI/Resources/Fonts/CourierPrime-Regular.ttf]Loading... This might take a minute..."
 scroll_following = true
 autowrap_mode = 2
 tab_size = 10
 
-[node name="LeftPortrait" parent="." instance=ExtResource("1_ip6cq")]
-unique_name_in_owner = true
-z_index = 0
-layout_mode = 2
-offset_left = 137.0
-offset_top = 40.0
-offset_right = 625.4
-offset_bottom = 854.0
-
-[node name="RightPortrait" parent="." instance=ExtResource("1_ip6cq")]
-unique_name_in_owner = true
-z_index = 0
-layout_mode = 2
-offset_left = 1300.0
-offset_top = 40.0
-offset_right = 1788.4
-offset_bottom = 854.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-
-[node name="BlurbTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.1
-autostart = true
-
-[node name="NextButton" type="Button" parent="."]
-visible = false
+[node name="NextButton" type="Button" parent="CharactersSpeak/Panel/MarginContainer/Transcription"]
 z_index = 1073
 layout_mode = 1
 anchors_preset = -1
@@ -101,12 +102,153 @@ anchor_left = 0.00260417
 anchor_top = 0.666667
 anchor_right = 1.00417
 anchor_bottom = 1.01481
-offset_top = -8.0
+offset_left = -219.974
+offset_top = -531.333
+offset_right = 161.637
+offset_bottom = 165.86
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 81
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1u0eo")
 flat = true
-metadata/_edit_use_anchors_ = true
 
-[connection signal="timeout" from="BlurbTimer" to="." method="BlurbTimer"]
-[connection signal="pressed" from="NextButton" to="." method="AdvanceCharacterReply"]
+[node name="LeftPortrait" parent="CharactersSpeak" instance=ExtResource("1_ip6cq")]
+unique_name_in_owner = true
+z_index = 0
+layout_mode = 2
+offset_left = 126.0
+offset_top = -690.0
+offset_right = 614.4
+offset_bottom = 124.0
+
+[node name="RightPortrait" parent="CharactersSpeak" instance=ExtResource("1_ip6cq")]
+unique_name_in_owner = true
+z_index = 0
+layout_mode = 2
+offset_left = 1248.0
+offset_top = -653.0
+offset_right = 1677.6
+offset_bottom = 63.0001
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="CharactersSpeak"]
+unique_name_in_owner = true
+
+[node name="BlurbTimer" type="Timer" parent="CharactersSpeak"]
+unique_name_in_owner = true
+wait_time = 0.13
+autostart = true
+
+[node name="PlayerThink" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="PlayerThink"]
+z_index = -1
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 299.0
+offset_top = 557.0
+offset_right = 1582.0
+offset_bottom = 1019.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_nbk2l")
+
+[node name="Portrait" type="TextureRect" parent="PlayerThink/Panel"]
+z_index = -1
+layout_mode = 0
+offset_left = 143.0
+offset_top = -517.0
+offset_right = 657.0
+offset_bottom = 138.0
+texture = ExtResource("4_cx81j")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Portrait" type="TextureRect" parent="PlayerThink/Panel/Portrait"]
+modulate = Color(0.172833, 0.172833, 0.172833, 1)
+z_index = -1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 530.0
+offset_bottom = 663.0
+texture = ExtResource("4_cx81j")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="AdvanceButtonTex" type="TextureRect" parent="PlayerThink/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 970.0
+offset_top = 189.0
+offset_right = 1144.0
+offset_bottom = 363.0
+texture = ExtResource("5_fyh83")
+expand_mode = 3
+
+[node name="PlayerAdvanceButton" type="Button" parent="PlayerThink/Panel/AdvanceButtonTex"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 176.0
+offset_bottom = 169.0
+flat = true
+
+[node name="AdvanceButtonLabel" type="Label" parent="PlayerThink/Panel/AdvanceButtonTex/PlayerAdvanceButton"]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.491
+anchor_top = 0.953
+anchor_right = 0.491
+anchor_bottom = 0.953
+offset_left = -80.961
+offset_top = -0.0570068
+offset_right = 81.039
+offset_bottom = 34.943
+text = "SKIP"
+label_settings = SubResource("LabelSettings_u47ft")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerInputBox" type="TextEdit" parent="PlayerThink/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 194.0
+offset_top = 141.0
+offset_right = 970.0
+offset_bottom = 394.0
+theme_override_colors/current_line_color = Color(0.72, 0.0576, 0.0576, 1)
+theme_override_colors/background_color = Color(1, 1, 1, 0)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.639216)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0.07, 0.07, 0.07, 1)
+theme_override_constants/caret_width = 16
+theme_override_fonts/font = ExtResource("5_a1dkh")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_g1f42")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g1f42")
+placeholder_text = ">Input what you want to say here or skip your turn..."
+context_menu_enabled = false
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="Label" type="Label" parent="PlayerThink/Panel"]
+z_index = 2
+layout_mode = 0
+offset_left = 174.0
+offset_top = 92.0
+offset_right = 444.0
+offset_bottom = 127.0
+text = "MRS. ROBERTSON:"
+label_settings = SubResource("LabelSettings_u47ft")
+
+[connection signal="pressed" from="CharactersSpeak/Panel/MarginContainer/Transcription/NextButton" to="." method="AdvanceCharacterReply"]
+[connection signal="timeout" from="CharactersSpeak/BlurbTimer" to="." method="BlurbTimer"]
+[connection signal="pressed" from="PlayerThink/Panel/AdvanceButtonTex/PlayerAdvanceButton" to="." method="OnAdvanceButtonPressed"]
+[connection signal="text_changed" from="PlayerThink/Panel/PlayerInputBox" to="." method="OnPlayerInputChange"]

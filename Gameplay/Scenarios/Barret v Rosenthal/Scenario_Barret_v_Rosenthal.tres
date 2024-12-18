@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=7 format=3 uid="uid://0uloatnca4vf"]
+
+[ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_cjwtt"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="1_fps3b"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_4orrc"]
+[ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_nu8m5"]
+[ext_resource type="Resource" uid="uid://cj46djy1tkmh5" path="res://Gameplay/Scenarios/Barret v Rosenthal/W_Dr Alan Weiss.tres" id="4_q0gwd"]
+[ext_resource type="Resource" uid="uid://c4iqdggoi5yn" path="res://Gameplay/Scenarios/Barret v Rosenthal/W_Linda Tran.tres" id="5_ixns5"]
+
+[resource]
+script = ExtResource("1_fps3b")
+GeneralInfo = "Context of the Case: 
+Stephen J. Barrett and Timothy Polevoy, operators of websites targeting health frauds, filed a defamation lawsuit against Ilena Rosenthal. Rosenthal was accused of republishing defamatory content in an online discussion group, despite being warned of its falsehood. Plaintiffs operated websites exposing health fraud. Alleged to be defamed through online posts labeling them unethical, dishonest, and engaged in criminal activity.
+
+Grounds for the Lawsuit: 
+Plaintiffs alleged that Rosenthal maliciously distributed defamatory statements, including accusations of criminal activity, professional incompetence, and unethical behavior. Rosenthal claimed immunity under Section 230 of the Communications Decency Act (CDA). Defendant operates an internet discussion group focused on alternative health. Claimed immunity under Section 230 for republishing third-party content without creating it herself.
+
+Objective Facts:
+Defamatory statements originated from a third party, which Rosenthal republished.
+Section 230(c)(1) of the CDA provides immunity for users and providers of interactive computer services from liability for content created by others.
+The Court of Appeal challenged existing interpretations of Section 230 by attempting to apply common law “distributor” liability.
+The Supreme Court reversed the Court of Appeal, affirming broad immunity under Section 230.
+47 U.S.C. § 230(c)(1): “No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information provided by another information content provider.”
+Zeran v. America Online, Inc.: Established that Section 230 immunity precludes both “publisher” and “distributor” liability.
+Restatement (Second) of Torts § 581: Outlines common law distinctions between “publishers” and “distributors.”"
+Characters = Array[Object]([ExtResource("1_cjwtt"), ExtResource("2_4orrc"), ExtResource("3_nu8m5"), ExtResource("4_q0gwd"), ExtResource("5_ixns5")])
+InitialEvidences = null

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=6 format=3 uid="uid://b3iwp6rati8yq"]
+
+[ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_ki1u0"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="1_r7w4o"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_onwg6"]
+[ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_5qngm"]
+[ext_resource type="Resource" uid="uid://c3f5yeu0a0ev6" path="res://Gameplay/Scenarios/NYT v Sullivan/W_Rev Abernathy.tres" id="4_bx2lc"]
+
+[resource]
+script = ExtResource("1_r7w4o")
+GeneralInfo = "Basic Information
+Why the Plaintiff is Suing:
+L.B. Sullivan, a public official in Montgomery, Alabama, sued the New York Times for defamation over a full-page advertisement titled “Heed Their Rising Voices” that criticized police actions during the civil rights movement.
+Sullivan claimed the ad contained false statements about the Montgomery police, which he oversaw, damaging his reputation.
+Background of the Plaintiff and Defendant:
+L.B. Sullivan (Plaintiff):
+Sullivan was the Commissioner of Public Affairs in Montgomery, Alabama, responsible for overseeing the police department. He was known for being sensitive to criticism and took the ad’s critiques of police behavior as a personal attack on his reputation.
+New York Times Company (Defendant):
+The New York Times was a leading national newspaper that had published the controversial ad. Known for its commitment to investigative journalism, the paper often reported on civil rights issues, advocating for press freedoms to cover significant public concerns.
+Objective Facts:
+The advertisement, published in 1960, sought to raise funds for Martin Luther King Jr.’s legal defense and criticized systemic racism in the South.
+While it didn’t mention Sullivan by name, he argued that it implicitly referred to him due to his role as police commissioner.
+The ad contained minor factual inaccuracies, such as misstating the number of times Dr. King had been arrested and the actions of police.
+Arguments of Each Side:
+Plaintiff (L.B. Sullivan):
+Claimed the inaccuracies in the ad defamed him by damaging his reputation and professional credibility.
+Argued that as a public official responsible for the police, criticism of their conduct was inherently a criticism of him.
+Maintained that the inaccuracies showed reckless disregard for the truth, which met the threshold for libel under Alabama law.
+
+Legal Dispute:
+Central question: What standard should courts apply to determine whether public officials can win defamation claims against the press?
+Relevant Excerpts:
+First Amendment:
+“Congress shall make no law … abridging the freedom of speech, or of the press.”
+
+Use the following quotes ONLY as inspiration for the judge. DO NOT quote them directly and DO NOT cite them:
+Majority Opinion (Justice Brennan):
+Established the \"actual malice\" standard for defamation claims involving public officials:
+A plaintiff must prove that the defendant made false statements with knowledge of their falsity or with reckless disregard for the truth.
+“[A public official] must bear the burden of showing that the statement was made with actual malice … to ensure the free exchange of ideas essential to democracy.”
+Brennan underscored the importance of robust debate on public issues, even if such debate occasionally involves errors.
+Impact of Decision:
+The ruling significantly expanded press freedoms, ensuring that journalists could critique public officials without excessive fear of legal retaliation."
+Characters = Array[Object]([ExtResource("1_ki1u0"), ExtResource("2_onwg6"), ExtResource("3_5qngm"), ExtResource("4_bx2lc")])
+InitialEvidences = null

@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Godot;
 using Godot.Collections;
 using ProjectBrad.LLM.Scripts;
+using projectbrad.UI.Scripts;
 using Array = Godot.Collections.Array;
 
 public partial class QueuedCharacterReply : Node
 {
-    private readonly LlmEvent _event;
+    private readonly LlmParser _parser;
     private readonly Array<CharacterAssetsSet> _characters;
     private readonly CharacterBox _charBox;
     
@@ -18,22 +19,20 @@ public partial class QueuedCharacterReply : Node
     public string Emotion;
     public string Line;
 
-    public QueuedCharacterReply(LlmEvent @event, Array<CharacterAssetsSet> characters, CharacterBox charBox)
+    public QueuedCharacterReply(LlmParser parser, Array<CharacterAssetsSet> characters, CharacterBox charBox)
     {
-        _event = @event;
+        _parser = parser;
         _characters = characters;
         _charBox = charBox;
         
         Task.Run(async () =>
         {
-            _charBox.CallDeferred(CharacterBox.MethodName.EnqueueCharacterReply, this);
-            var name = await _event.GetNextEnumerableForProperty("Codename").LastOrDefaultAsync();
+            var name = await _parser.GetNextEnumerableForProperty("Codename").LastOrDefaultAsync();
             var glancingTowardsName =
-                await _event.GetNextEnumerableForProperty("LookingAtCodename").LastOrDefaultAsync();
+                await _parser.GetNextEnumerableForProperty("LookingAtCodename").LastOrDefaultAsync();
             try
             {
                 Character = _characters.First(@char => @char.CodeName == name);
-                SecondaryCharacter = _characters.First(@char => @char.CodeName == glancingTowardsName);
             }
             catch (InvalidOperationException e)
             {
@@ -41,19 +40,29 @@ public partial class QueuedCharacterReply : Node
                 return;
             }
 
+            SecondaryCharacter = _characters.FirstOrDefault(@char => @char.CodeName == glancingTowardsName);
             string emotionUpdate;
             IAsyncEnumerable<string> currentLineEnumerable;
             
             
-            while ((emotionUpdate = await @event.GetNextEnumerableForProperty("Emotion").LastAsync()) != null &&
-                   (currentLineEnumerable = @event.GetNextEnumerableForProperty("Line")) != null)
+            while ((emotionUpdate = await parser.GetNextEnumerableForProperty("Emotion").LastAsync()) != null &&
+                   (currentLineEnumerable = parser.GetNextEnumerableForProperty("Line")) != null)
             {
+                var @event = new CharacterBoxEvent()
+                {
+                    EventType = CharacterBoxEvent.Type.CharacterSay,
+                    LeftCharacter = Character,
+                    LeftEmotion = emotionUpdate,
+                    RightCharacter = SecondaryCharacter,
+                };
+                charBox.Call(CharacterBox.MethodName.EnqueueCharacterBoxEvent, @event);
+                
                 await foreach (var lineUpdate in currentLineEnumerable)
                 {
-                    Emotion = emotionUpdate;
-                    Line = lineUpdate;
+                    @event.LineUpdates.Enqueue(lineUpdate);
                 }
-                
+
+                @event.Finished = true;
             }
         });
         

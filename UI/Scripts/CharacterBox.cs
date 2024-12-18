@@ -1,7 +1,9 @@
-using Godot;
+/**/using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using projectbrad.UI.Scripts;
 
 public partial class CharacterBox : Control
 {
@@ -9,14 +11,21 @@ public partial class CharacterBox : Control
 	private CharacterPortrait _leftPortrait;
 	private CharacterPortrait _rightPortrait;
 	private AudioStreamPlayer _audioStreamPlayer;
-	private Queue<QueuedCharacterReply> _characterReplyQueue = new();
+	private Queue<CharacterBoxEvent> _characterBoxEventQueue = new();
+	private CharacterBoxEvent _currentEvent;
+	private TextEdit _playerInputBox;
+	private TextureRect _advanceButtonTex;
 	private string _lastLine;
+	private int _lineNum = 1;
+	private RandomNumberGenerator _randomGen = new();
 
 	private string Transcription
 	{
 		get => _transcriptionLabel.Text;
 		set => _transcriptionLabel.Text = value;
 	}
+
+	[Export] public LlmScript2 LlmManager;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -25,69 +34,178 @@ public partial class CharacterBox : Control
 		_leftPortrait = GetNode<CharacterPortrait>("%LeftPortrait");
 		_rightPortrait = GetNode<CharacterPortrait>("%RightPortrait");
 		_audioStreamPlayer = GetNode<AudioStreamPlayer>("%AudioPlayer");
-		
+		_playerInputBox = GetNode<TextEdit>("%PlayerInputBox");
+		_advanceButtonTex = GetNode<TextureRect>("%AdvanceButtonTex");
+
 		_rightPortrait.SetFlipped(true);
+		
+		GetNode<Control>("PlayerThink").Visible = false;
+		GetNode<Control>("CharactersSpeak").Visible = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
 	}
 
 	private void BlurbTimer()
 	{
-		_characterReplyQueue.TryPeek(out var currentCharReply);
-		if (currentCharReply != null && currentCharReply.Line != _lastLine)
-		{
-			SetCharacterSay(currentCharReply);
-		}
+		if (_currentEvent == null && !_characterBoxEventQueue.TryDequeue(out _currentEvent))
+			return;
+
+
+		if (_currentEvent.LineUpdates.Count > 0)
+			SetCharacterSay(_currentEvent);
 	}
-	
-	public void SetCharacterSay(QueuedCharacterReply reply)
+
+	public void SetCharacterSay(CharacterBoxEvent @event)
 	{
-		if (reply.Character == null) return;
-		_lastLine = reply.Line;
-		switch (reply.Emotion)
+		if (@event.LeftCharacter == null) return;
+		
+		GetNode<Control>("PlayerThink").Visible = false;
+		GetNode<Control>("CharactersSpeak").Visible = true;
+		OnPlayerInputChange();
+		
+		var line = @event.LineUpdates.Dequeue();
+		_lastLine = line;
+		var open = _randomGen.Randf() > 0.5f;
+		switch (@event.LeftEmotion)
 		{
 			case "surprised":
-				_leftPortrait.SetTexture(reply.Character.SurprisedOpen);
+				_leftPortrait.SetTexture(open? @event.LeftCharacter.SurprisedOpen : @event.LeftCharacter.SurprisedClosed);
 				break;
-			case "thinking": 
-				_leftPortrait.SetTexture(reply.Character.ThinkingOpen);
-				break; 
+			case "thinking":
+				_leftPortrait.SetTexture(open? @event.LeftCharacter.ThinkingOpen : @event.LeftCharacter.ThinkingClosed);
+				break;
 			case "confident":
-				_leftPortrait.SetTexture(reply.Character.ConfidentOpen);
+				_leftPortrait.SetTexture(open? @event.LeftCharacter.ConfidentOpen : @event.LeftCharacter.ConfidentClosed);
 				break;
 			default:
-				_leftPortrait.SetTexture(reply.Character.NeutralOpen);
+				_leftPortrait.SetTexture(open? @event.LeftCharacter.NeutralOpen : @event.LeftCharacter.NeutralClosed);
 				break;
 		}
 
-		if (reply.SecondaryCharacter != null)
+		if (@event.RightCharacter != null)
 		{
-			_rightPortrait.SetTexture(reply.SecondaryCharacter.NeutralClosed);
+			_rightPortrait.SetTexture(@event.RightCharacter.NeutralClosed);
 		}
-		
-		_transcriptionLabel.Text = $"\t\t\t{reply.Character.PublicName.ToUpper().TagBold()}:\t\t{reply.Line.TagRegular()} \u258A".TagColor("black").TagFontSize(30);
-		
-		_audioStreamPlayer.Stream = reply.Character.BlurbSounds.PickRandom();
+
+		// format lines to have explicit "\n" characters rather than relying on 
+		// auto-wrap of Godot
+		var newLines = FormatTranscription(line, @event.LeftCharacter.PublicName);
+
+		_transcriptionLabel.Text =
+			$"{_lineNum} \t\t\t{@event.LeftCharacter.PublicName.ToUpper().TagBold()}:\t\t{newLines} \u258A"
+				.TagColor("black").TagFontSize(30).TagRegular();
+
+		_audioStreamPlayer.Stream = @event.LeftCharacter.BlurbSounds.PickRandom();
 		_audioStreamPlayer.PitchScale = Random.Shared.Next(8, 12) / 10f;
 		_audioStreamPlayer.Play();
 	}
-	
-	public void EnqueueCharacterReply(QueuedCharacterReply reply)
+
+	/*
+	// The FormatTranscription method is meant to be used to add in line numbers
+	// to character replies. This is needed, because the auto-wrap from Godot does
+	// it internally, and it's difficult to override, so I just change the text
+	// itself by adding in newlines, allowing for a max of 80 characters per line,
+	// which should work out for any display, since we have explicitly declared
+	// pixel sizes for the window.
+	*/
+	public string FormatTranscription(string replyLine, string characterPublicName)
 	{
-		_characterReplyQueue.Enqueue(reply);
+		// start out with first line of which character is speaking
+		var newLines = $"{_lineNum}        {characterPublicName}:    ";
+		var startingLength = newLines.Length;
+		var currentLineLength = startingLength;
+		var maxChars = 70;
+		// go through reply word-for-word
+		foreach (var word in replyLine.Split(" "))
+		{
+			// if it fits in line, add in the word, and update current line length
+			if (currentLineLength + word.Length < maxChars)
+			{
+				newLines = newLines + " " + word;
+				currentLineLength += word.Length + 1;
+			}
+			// else, add in new line with the next line number
+			else
+			{
+				var additionalLinesNum = newLines.Split("\n").Length;
+				newLines = newLines + $"\n{_lineNum + additionalLinesNum}   " + word;
+				currentLineLength = word.Length;
+			}
+		}
+
+		return newLines.Substring(startingLength);
+	}
+
+	public void EnqueueCharacterBoxEvent(CharacterBoxEvent @event)
+	{
+		_characterBoxEventQueue.Enqueue(@event);
 	}
 
 	public void AdvanceCharacterReply()
 	{
 		GD.Print("Advance character reply");
-		_characterReplyQueue.TryDequeue(out _);
+
+		if (_currentEvent != null)
+		{
+			var pubName = _currentEvent.LeftCharacter.PublicName;
+			// get current reply, and format it to count how many lines are being added from that specific reply
+			var numLinesAdded = FormatTranscription(_lastLine, pubName).Split("\n").Length;
+			// then update line number (how many we've already gone through)
+			_lineNum += numLinesAdded;
+			if (_currentEvent.LineUpdates.Count > 0 && _currentEvent.Finished)
+			{
+				while (_currentEvent.LineUpdates.Count > 1)
+				{
+					_currentEvent.LineUpdates.Dequeue();
+				}
+
+				SetCharacterSay(_currentEvent);
+			}
+			else if (_currentEvent.Finished)
+			{
+				_characterBoxEventQueue.TryDequeue(out _currentEvent);
+			}
+		}
+
+		if (_currentEvent == null)
+		{
+			GetNode<Control>("PlayerThink").Visible = true;
+			GetNode<Control>("CharactersSpeak").Visible = false;
+		}
 	}
-	
-	
+
+	void OnPlayerInputChange()
+	{
+		if (_playerInputBox.Text.Length > 0)
+		{
+			_advanceButtonTex.Texture = GD.Load<Texture2D>("res://Art/Other/send_asset.png");
+			GetNode<Label>("%AdvanceButtonLabel").Text = "REPLY";
+		}
+		else
+		{
+			_advanceButtonTex.Texture = GD.Load<Texture2D>("res://Art/Other/skip_asset.png");
+			GetNode<Label>("%AdvanceButtonLabel").Text = "SKIP";
+		}
+	}
+
+	void OnAdvanceButtonPressed()
+	{
+		if (_playerInputBox.Text.Length > 0)
+		{
+			LlmManager.NewReplyUser(_playerInputBox.Text);
+			_playerInputBox.Text = "";
+		}
+		else
+		{
+			LlmManager.NewReply();
+		}
+
+		GetNode<Control>("PlayerThink").Visible = false;
+		GetNode<Control>("CharactersSpeak").Visible = false;
+	} 
 }
 
 static class StringBBTagExtensions
@@ -96,7 +214,7 @@ static class StringBBTagExtensions
 	{
 		return $"[font=UI/Resources/Fonts/CourierPrime-Regular.ttf]{s}[/font]";
 	}
-	
+
 	public static string TagRegular(this string s)
 	{
 		return $"[font=UI/Resources/Fonts/CourierPrime-Regular.ttf]{s}[/font]";

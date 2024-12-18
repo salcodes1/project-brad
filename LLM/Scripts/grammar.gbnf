@@ -2,17 +2,17 @@
 
 event ::= actorreply end
 
-actorreply ::= "EventType: CharacterReply" newline "Codename:" codename newline "LookingAtCodename: " codename newline emotionline newline
+actorreply ::= "EventType: CharacterReply" newline "Codename:" codename newline "LookingAtCodename: " codename newline emotionline{2,4}
 
 newline ::= "\n"
 
 codename ::= alphanumeric+
 
-emotionline ::= "Emotion: " emotion newline "Line: " line
+emotionline ::= "Emotion: " emotion newline "Line: " line newline
 
 emotion ::= "neutral" | "surprised" | "thinking" | "confident"
 
-line ::= alphanumeric*
+line ::= "\"" alphanumeric* "\""
 
 end ::= "$[END]"
 

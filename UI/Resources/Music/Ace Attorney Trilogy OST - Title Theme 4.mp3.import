@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vwke0kldjuqy"
+path="res://.godot/imported/Ace Attorney Trilogy OST - Title Theme 4.mp3-4cafc98116f872f5e03f8504dd6065ad.mp3str"
+
+[deps]
+
+source_file="res://UI/Resources/Music/Ace Attorney Trilogy OST - Title Theme 4.mp3"
+dest_files=["res://.godot/imported/Ace Attorney Trilogy OST - Title Theme 4.mp3-4cafc98116f872f5e03f8504dd6065ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

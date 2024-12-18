@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LlmScenario" load_steps=7 format=3 uid="uid://bnc1lb6nbntrr"]
+
+[ext_resource type="Resource" uid="uid://bfku05pn20su6" path="res://Art/DefaultCharacterSets/PS_Natasha.tres" id="1_5hyc7"]
+[ext_resource type="Script" path="res://LLM/Scripts/LlmScenario.cs" id="1_wbi5s"]
+[ext_resource type="Resource" uid="uid://d3igdi1ikyclv" path="res://Art/DefaultCharacterSets/PS_Judy.tres" id="2_eojrw"]
+[ext_resource type="Resource" uid="uid://cvj17q0xtusib" path="res://Art/DefaultCharacterSets/PS_Judge.tres" id="3_7kmrm"]
+[ext_resource type="Resource" uid="uid://bwm1j2cftf8i" path="res://Gameplay/Scenarios/Doe v Ciolli/W_Dr Emily Harper.tres" id="4_q2rql"]
+[ext_resource type="Resource" uid="uid://cq1y74jptfll7" path="res://Gameplay/Scenarios/Doe v Ciolli/W_Alan Shaw.tres" id="5_vk1q0"]
+
+[resource]
+script = ExtResource("1_wbi5s")
+GeneralInfo = "Context of the Case: 
+Jane Doe I and Jane Doe II, Yale Law School students, sued anonymous individuals who made defamatory and threatening posts about them on AutoAdmit, an online discussion forum. The case addresses libel, invasion of privacy, emotional distress, and copyright violations. The plaintiffs were female Yale Law students subjected to harassment and defamation. Doe II faced targeted threats and harmful falsehoods, leading to emotional and professional setbacks. The defendant was known for inflammatory and defamatory comments on AutoAdmit. Challenged the subpoena citing First Amendment rights but admitted to posting some harmful statements.
+
+Grounds for the Lawsuit: 
+The plaintiffs claim the posts included sexual harassment, defamatory statements, threats of violence, and unauthorized use of copyrighted photographs. They argue these actions caused emotional and reputational harm.
+
+Objective Facts:
+Posts began in 2007, targeting Doe II with derogatory comments, false claims, and threats.
+Comments included explicit sexual language and threats of violence.
+Doe II suffered severe emotional distress, educational setbacks, and damage to her reputation.
+A subpoena was issued to AT&T to identify the anonymous poster, “AK47.”
+28 U.S.C. § 1331 and § 1367(a): Federal jurisdiction extends to civil actions arising under U.S. laws and related state law claims.
+First Amendment: Protects anonymous speech but excludes speech that is defamatory or tortious.
+Connecticut Libel Law: Requires evidence of published defamatory statements that identify the plaintiff, are shared with a third party, and cause reputational harm.
+"
+Characters = Array[Object]([ExtResource("1_5hyc7"), ExtResource("2_eojrw"), ExtResource("3_7kmrm"), ExtResource("4_q2rql"), ExtResource("5_vk1q0")])
+InitialEvidences = null

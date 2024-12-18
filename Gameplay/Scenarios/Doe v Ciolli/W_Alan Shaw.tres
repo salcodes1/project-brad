@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterAssetsSet" load_steps=8 format=3 uid="uid://cq1y74jptfll7"]
+
+[ext_resource type="Script" path="res://Gameplay/Scripts/CharacterAssetsSet.cs" id="1_ku21w"]
+[ext_resource type="AudioStream" uid="uid://csovj48c5yk0a" path="res://Art/Judy/typewriter-1-1.wav" id="1_v7l3w"]
+[ext_resource type="AudioStream" uid="uid://b8riq605375yd" path="res://Art/Judy/typewriter-1-2.wav" id="2_fu005"]
+[ext_resource type="Texture2D" uid="uid://38jmu13fpu5v" path="res://Art/Witnesses/witnessDclosed.png" id="3_fb4x1"]
+[ext_resource type="Texture2D" uid="uid://cf1mogblcpfna" path="res://Art/Witnesses/witnessDopen.png" id="4_hp6xd"]
+[ext_resource type="Texture2D" uid="uid://b6mludgb012pj" path="res://Art/Witnesses/witnessDclosed_tnk.png" id="5_dgfsu"]
+[ext_resource type="Texture2D" uid="uid://sf4x4ym8o7bw" path="res://Art/Witnesses/witnessDopen_tnk.png" id="6_rydjd"]
+
+[resource]
+script = ExtResource("1_ku21w")
+CodeName = "ReputationSpecialist"
+PublicName = "Alan Shaw"
+Background = "Reputation consultant highlighting professional consequences for Doe II."
+NeutralOpen = ExtResource("4_hp6xd")
+NeutralClosed = ExtResource("3_fb4x1")
+ThinkingOpen = ExtResource("6_rydjd")
+ThinkingClosed = ExtResource("5_dgfsu")
+SurprisedOpen = ExtResource("4_hp6xd")
+SurprisedClosed = ExtResource("3_fb4x1")
+ConfidentOpen = ExtResource("4_hp6xd")
+ConfidentClosed = ExtResource("3_fb4x1")
+BlurbSounds = Array[AudioStream]([ExtResource("1_v7l3w"), ExtResource("2_fu005")])

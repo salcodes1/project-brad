@@ -1,0 +1,237 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbkqr20xjhj3t"]
+
+[ext_resource type="Texture2D" uid="uid://cu8p7haj6bqlf" path="res://Art/Backdrops/courtroom-1.png" id="1_jwr2v"]
+[ext_resource type="FontFile" uid="uid://c1x5de1uf4rko" path="res://UI/Resources/Fonts/CourierPrime-Bold.ttf" id="2_8arbw"]
+[ext_resource type="Script" path="res://UI/Scripts/MainMenuButtons.cs" id="3_huyje"]
+[ext_resource type="FontFile" uid="uid://7eqpm3yt2bgl" path="res://UI/Resources/Fonts/CourierPrime-Regular.ttf" id="4_akigl"]
+[ext_resource type="Script" path="res://UI/Scripts/LevelButtons.cs" id="5_n77db"]
+[ext_resource type="Script" path="res://UI/Scripts/OptionsButtons.cs" id="6_14rmg"]
+[ext_resource type="AudioStream" uid="uid://vwke0kldjuqy" path="res://UI/Resources/Music/Ace Attorney Trilogy OST - Title Theme 4.mp3" id="6_e3m23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq25e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv7w7"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1000
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_default_cursor_shape = 13
+texture = ExtResource("1_jwr2v")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 1920.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8arbw")
+theme_override_font_sizes/font_size = 150
+text = "GAME TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 280.0
+offset_right = 1285.0
+offset_bottom = 930.0
+script = ExtResource("3_huyje")
+
+[node name="PlayButton" type="Button" parent="MainMenuButtons"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 70
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="MainMenuButtons"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 70
+text = "Options
+"
+
+[node name="QuitButton" type="Button" parent="MainMenuButtons"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 70
+text = "Quit"
+
+[node name="LevelButtons" type="GridContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 260.0
+offset_right = 1660.0
+offset_bottom = 960.0
+columns = 3
+script = ExtResource("5_n77db")
+
+[node name="Case1" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "Lexmark v. Static"
+
+[node name="Case2" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "Warhol v. Goldsmith"
+
+[node name="Case3" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "Doe v. Ciolli"
+
+[node name="Case4" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "Counterman v. Colorado"
+
+[node name="Case5" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "Cariou v. Prince"
+
+[node name="Case6" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "Barret v. Rosenthal
+"
+
+[node name="Case7" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+text = "NYT v. Sullivan"
+
+[node name="Empty Space" type="Button" parent="LevelButtons"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+
+[node name="BackButton" type="Button" parent="LevelButtons"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qq25e")
+text = "Back to Main Menu"
+
+[node name="OptionsButtons" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 300.0
+offset_right = 1660.0
+offset_bottom = 1000.0
+script = ExtResource("6_14rmg")
+
+[node name="MusicButton" type="Button" parent="OptionsButtons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 50
+text = "Music - ON"
+
+[node name="BackButton" type="Button" parent="OptionsButtons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_akigl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wv7w7")
+text = "Back to Main Menu"
+
+[node name="Disclaimer" type="RichTextLabel" parent="OptionsButtons"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+theme_override_fonts/normal_font = ExtResource("4_akigl")
+theme_override_font_sizes/normal_font_size = 20
+text = "Copyright Disclaimer: We use music from the video game Ace Attorney for the menu. We believe this constitues fair use, as it is being used for a school project, not being made public in some way to replace the original, and certainly not being used for profit or claiming it to be our own musical work."
+fit_content = true
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_e3m23")
+volume_db = -12.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="MainMenuButtons/PlayButton" to="MainMenuButtons" method="PlayButtonPressed"]
+[connection signal="pressed" from="MainMenuButtons/OptionsButton" to="MainMenuButtons" method="OptionsButtonPressed"]
+[connection signal="pressed" from="MainMenuButtons/QuitButton" to="MainMenuButtons" method="QuitButtonPressed"]
+[connection signal="pressed" from="LevelButtons/Case1" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Lexmark/Scenario_Lexmark.tres"]]
+[connection signal="pressed" from="LevelButtons/Case2" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Warhol v Goldsmith/Scenario_Warhol_v_Goldsmith.tres"]]
+[connection signal="pressed" from="LevelButtons/Case3" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Doe v Ciolli/Scenario_Doe_v_Ciolli.tres"]]
+[connection signal="pressed" from="LevelButtons/Case4" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Counterman v Colorado/Scenario_Counterman_v_Colorado.tres"]]
+[connection signal="pressed" from="LevelButtons/Case5" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Cariou v Prince/Scenario_Cariou_v_Prince.tres"]]
+[connection signal="pressed" from="LevelButtons/Case6" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/Barret v Rosenthal/Scenario_Barret_v_Rosenthal.tres"]]
+[connection signal="pressed" from="LevelButtons/Case7" to="LevelButtons" method="ReadScenario" binds= ["res://Gameplay/Scenarios/NYT v Sullivan/Scenario_NYT_v_Sullivan.tres"]]
+[connection signal="pressed" from="LevelButtons/BackButton" to="LevelButtons" method="BackButtonPressed"]
+[connection signal="pressed" from="OptionsButtons/MusicButton" to="OptionsButtons" method="MusicButtonPressed"]
+[connection signal="pressed" from="OptionsButtons/BackButton" to="OptionsButtons" method="BackButtonPressed"]
