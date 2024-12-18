@@ -1,14 +1,18 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Godot.Collections;
 using LLama;
 using LLama.Common;
+using LLama.Native;
 using LLama.Sampling;
 using LLama.Transformers;
+using projectbrad;
 using ProjectBrad.LLM.Scripts;
+using FileAccess = Godot.FileAccess;
 
 public partial class LlmScript2 : Node
 {
@@ -29,12 +33,36 @@ public partial class LlmScript2 : Node
     private CharacterBox _charBox;
 
     public override void _Ready()
-    {
+    {        
+        string modelPath = @"Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"; //@"Ministral-8B-Instruct-2410-Q5_K_L.gguf"; 
+        if (!OS.HasFeature("editor"))
+        {
+            GD.Print("Looking for Exported libraries");
+            var libName = OS.HasFeature("macos")? "libllama.dylib" : "libllama.dll";
+            var libPath = FileFinder.FindFileUpwards(libName);
+            if (libPath != null)
+            {
+                GD.Print($"Found library {libPath}");
+                NativeLibraryConfig.LLama.WithLibrary(libPath);
+            }
+            else
+            {
+                GD.PrintErr("Could not find libllama library");
+            }
+            modelPath = FileFinder.FindFileUpwards(modelPath);
+            if (modelPath != null)
+            {
+                GD.Print($"Found model {modelPath}");
+            }
+            else
+            {
+                GD.PrintErr("Could not find LLM model!");
+            }
+        }
         grammar = FileAccess.Open("res://LLM/Scripts/grammar.gbnf", FileAccess.ModeFlags.Read).GetAsText();
         SystemPrompt = SystemPrompt.Replace("{grammar}", grammar);
 
         
-        string modelPath = @"Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"; //@"Ministral-8B-Instruct-2410-Q5_K_L.gguf"; 
         var parameters = new ModelParams(modelPath)
         {
             
@@ -85,7 +113,7 @@ public partial class LlmScript2 : Node
         };
 
         string instructions =
-            $"Please provide a single CharacterReply from one of the present characters in response to the player (the defendant) who has said this: {userInput}";
+            $"Please provide the next logical CharacterReply in the conversation from one of the present characters in response to the player (the DefendantLaywer) saying this: {userInput}";
         var @event = new LlmParser(this, instructions);
         @event.StartProcessing(session, inferenceParams);
         _ = new QueuedCharacterReply(@event, Scenario.Characters, _charBox);
@@ -109,7 +137,7 @@ public partial class LlmScript2 : Node
         };
 
         string instructions =
-            $"Please provide a single CharacterReply from one of the present characters (aside from the Defendant).";
+            $"Please provide the next logical CharacterReply in the conversation (aside from the DefendantLaywer).";
         var @event = new LlmParser(this, instructions);
         @event.StartProcessing(session, inferenceParams);
         _ = new QueuedCharacterReply(@event, Scenario.Characters, _charBox);

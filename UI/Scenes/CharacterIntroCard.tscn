@@ -62,6 +62,7 @@ label_settings = SubResource("LabelSettings_jsk56")
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="PortraitCard"]
+z_index = 4
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,8 +109,12 @@ visible = false
 
 [node name="Button" type="Button" parent="CenterLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 8.0
-offset_bottom = 8.0
+z_index = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterPanel" type="ColorRect" parent="CenterLayer"]
 unique_name_in_owner = true

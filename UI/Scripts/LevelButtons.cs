@@ -25,6 +25,7 @@ public partial class LevelButtons : GridContainer
 
 	public void ReadScenario(string scenarioPath)
 	{
+		GD.Print("Reading Scenario: " + scenarioPath);
 		var scenario = GD.Load<LlmScenario>(scenarioPath);
 
 		var scenarioScreen = GD.Load<PackedScene>("res://UI/Scenes/ScenarioInfo.tscn").Instantiate<ScenarioInfo>();

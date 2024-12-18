@@ -31,6 +31,7 @@ script = ExtResource("1_cmmqu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -109,6 +110,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1177.0
 offset_top = 629.0
 offset_right = 1428.0

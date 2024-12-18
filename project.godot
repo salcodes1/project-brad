@@ -24,3 +24,7 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="project-brad"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
