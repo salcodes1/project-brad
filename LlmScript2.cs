@@ -125,6 +125,13 @@ public partial class LlmScript2 : Node
     {
     }
 
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        context.Dispose();
+        model.Dispose();
+    }
+
     public void NewReplyUser(string userInput)
     {
         _charBox.AdvanceCharacterReply();
