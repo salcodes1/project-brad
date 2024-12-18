@@ -31,33 +31,62 @@ public partial class LlmScript2 : Node
     [Export] public LlmScenario Scenario;
 
     private CharacterBox _charBox;
-
+    private static bool _nativeInititialized = false;
     public override void _Ready()
     {        
-        string modelPath = @"Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"; //@"Ministral-8B-Instruct-2410-Q5_K_L.gguf"; 
-        if (!OS.HasFeature("editor"))
+        if (_nativeInititialized == false)
         {
-            GD.Print("Looking for Exported libraries");
-            var libName = OS.HasFeature("macos")? "libllama.dylib" : "libllama.dll";
-            var libPath = FileFinder.FindFileUpwards(libName);
-            if (libPath != null)
+            _nativeInititialized = true;
+            if (!OS.HasFeature("editor"))
             {
-                GD.Print($"Found library {libPath}");
-                NativeLibraryConfig.LLama.WithLibrary(libPath);
+                GD.Print("Looking for Exported libraries");
+                var libFolderName = "llama-cpu-runtimes";
+                string aarchPath;
+
+                if (OS.HasFeature("macos"))
+                {
+                    if (Engine.GetArchitectureName().Contains("arm"))
+                    {
+                        aarchPath = "osx-arm64/native/libllama.dylib";
+                    }
+                    else
+                    {
+                        aarchPath = "osx-x64/native/libllama.dylib";
+                    }
+                }
+                else if(OS.HasFeature("windows"))
+                {
+                    aarchPath = "win-x64/native/avx2/llama.dll";
+                }
+                else
+                {
+                    aarchPath = "linux-x64/avx2/libllama.so";
+                }
+            
+                var libFolder = FileFinder.FindDirectoryUpwards(libFolderName);
+                if (libFolder != null)
+                {
+                    var libPath = Path.Combine(libFolder, aarchPath);
+                    GD.Print($"Found lib directory {libPath}");
+                
+                    NativeLibraryConfig.LLama.WithLibrary(libPath);
+                }
+                else
+                {
+                    GD.PrintErr("Could not find libllama library");
+                }
             }
-            else
-            {
-                GD.PrintErr("Could not find libllama library");
-            }
-            modelPath = FileFinder.FindFileUpwards(modelPath);
-            if (modelPath != null)
-            {
-                GD.Print($"Found model {modelPath}");
-            }
-            else
-            {
-                GD.PrintErr("Could not find LLM model!");
-            }
+        }
+        
+        string modelPath = @"Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"; //@"Ministral-8B-Instruct-2410-Q5_K_L.gguf"; 
+        modelPath = FileFinder.FindFileUpwards(modelPath);
+        if (modelPath != null)
+        {
+            GD.Print($"Found model {modelPath}");
+        }
+        else
+        {
+            GD.PrintErr("Could not find LLM model!");
         }
         grammar = FileAccess.Open("res://LLM/Scripts/grammar.gbnf", FileAccess.ModeFlags.Read).GetAsText();
         SystemPrompt = SystemPrompt.Replace("{grammar}", grammar);
@@ -101,7 +130,7 @@ public partial class LlmScript2 : Node
         _charBox.AdvanceCharacterReply();
         InferenceParams inferenceParams = new InferenceParams()
         {
-            MaxTokens = 256, // No more than 256 tokens should appear in answer. Remove it if antiprompt is enough for control.
+            MaxTokens = 400, // No more than 256 tokens should appear in answer. Remove it if antiprompt is enough for control.
             AntiPrompts = new List<string> {model.Tokens.EndOfSpeechToken, model.Tokens.EndOfSpeechToken, "$[END]" }, // Stop generation once antiprompts appear.
 
             SamplingPipeline = new DefaultSamplingPipeline()
@@ -126,7 +155,7 @@ public partial class LlmScript2 : Node
 
         InferenceParams inferenceParams = new InferenceParams()
         {
-            MaxTokens = 256, // No more than 256 tokens should appear in answer. Remove it if antiprompt is enough for control.
+            MaxTokens = 400, // No more than 256 tokens should appear in answer. Remove it if antiprompt is enough for control.
             AntiPrompts = new List<string> { "$[END]" }, // Stop generation once antiprompts appear.
             
             SamplingPipeline = new DefaultSamplingPipeline()

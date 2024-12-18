@@ -31,12 +31,11 @@ script = ExtResource("1_cmmqu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
-z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 125.0
-offset_top = 473.0
+offset_top = 367.0
 offset_right = -869.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -50,15 +49,15 @@ size_flags_horizontal = 6
 size_flags_vertical = 10
 columns = 2
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+z_index = 2
 offset_left = 14.0
 offset_top = 4.0
 offset_right = 1872.0
 offset_bottom = 460.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xgbua")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,7 +69,7 @@ theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 75
 
-[node name="SynopsisLabel" type="RichTextLabel" parent="Panel/MarginContainer"]
+[node name="SynopsisLabel" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -81,8 +80,7 @@ theme_override_font_sizes/normal_font_size = 33
 text = "Stephen J. Barrett and Timothy Polevoy, operators of websites targeting health frauds, filed a defamation lawsuit against Ilena Rosenthal. Rosenthal was accused of republishing defamatory content in an online discussion group, despite being warned of its falsehood. Plaintiffs operated websites exposing health fraud. Alleged to be defamed through online posts labeling them unethical, dishonest, and engaged in criminal activity."
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
+[node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 1453.0
 offset_top = 632.0
 offset_right = 1704.0
@@ -91,7 +89,7 @@ icon = ExtResource("4_csdrd")
 icon_alignment = 1
 expand_icon = true
 
-[node name="NameLabel" type="Label" parent="Button"]
+[node name="NameLabel" type="Label" parent="CanvasLayer/Button"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 244.0
@@ -109,8 +107,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
+[node name="Button2" type="Button" parent="CanvasLayer"]
 offset_left = 1177.0
 offset_top = 629.0
 offset_right = 1428.0
@@ -119,7 +116,7 @@ icon = ExtResource("6_5olcv")
 icon_alignment = 1
 expand_icon = true
 
-[node name="NameLabel" type="Label" parent="Button2"]
+[node name="NameLabel" type="Label" parent="CanvasLayer/Button2"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 244.0
@@ -137,5 +134,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="pressed" from="Button" to="." method="StartGame"]
-[connection signal="pressed" from="Button2" to="." method="BackButtonPressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="StartGame"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="BackButtonPressed"]
